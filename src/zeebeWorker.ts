@@ -4,8 +4,6 @@ import debug_ from 'debug'
 
 const debug = debug_('phd-assess/zeebeWorker')
 
-import {writeFile} from 'fs';
-
 const zBClient = new ZBClient({
     pollInterval: Duration.seconds.of(10)
 })
@@ -20,20 +18,12 @@ const handler: ZBWorkerTaskHandler = async (
     worker.log(`Task variables ${job.variables}`)
     debug(`Zeebe worker "${taskType}" started`);
 
-    // Task worker business logic goes here
+
+
+    // AfterTask worker business logic goes here
     const updateBrokerVariables = {
         dateSent: 'newValue',
     }
-
-    const content = 'Hello world';
-    const file = 'file.txt';
-
-    await writeFile(file, content, (err) => {
-        if (err) {
-            return console.log(err);
-        }
-    })
-
     return job.complete(updateBrokerVariables)
 }
 
@@ -52,4 +42,3 @@ export const startWorker = () => {
 }
 
 startWorker()
-

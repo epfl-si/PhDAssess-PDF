@@ -2,12 +2,11 @@ import PdfPrinter from 'pdfmake'
 import fs from 'fs'
 import {BufferOptions, TDocumentDefinitions} from "pdfmake/interfaces"
 
-
-import {defaultStyle, styles} from "./styles";
-import main from "./parts/main";
-import sectionA from "./parts/sectionA"
+import {defaultStyle, styles} from "./styles"
+import getMain from "./parts/main"
+import getSectionA from "./parts/sectionA"
 import {seperator} from "./parts/utils"
-
+import {IInputVariables} from "zeebe-node"
 
 
 const fonts = {
@@ -15,31 +14,29 @@ const fonts = {
         normal: 'Helvetica',
         bold: 'Helvetica-Bold',
         italics: 'Helvetica-Oblique',
-        bolditalics: 'Helvetica-BoldOblique'
+        //bolditalics: 'Helvetica-BoldOblique',
     },
 }
 
-var dd : TDocumentDefinitions = {
-    content: [
-        main,
-        seperator,
-        sectionA,
-    ],
-    styles,
+function getDocumentDefinition(phdVariables: IInputVariables): TDocumentDefinitions {
+    return {
+        content: [
+            getMain(phdVariables),
+            seperator,
+            getSectionA(phdVariables),
+        ],
+        styles,
+        defaultStyle: defaultStyle
+    }
 }
 
-export default function makePDF() {
-    const printer = new PdfPrinter(fonts);
+export default function makePDF(phdVariables: IInputVariables) {
+    const printer = new PdfPrinter(fonts)
 
+    const options: BufferOptions = {}
+    const pdfDoc = printer.createPdfKitDocument(getDocumentDefinition(phdVariables),
+        options)
 
-    const options: BufferOptions = {
-        // ...
-    }
-
-    dd['defaultStyle'] = defaultStyle
-
-    const pdfDoc = printer.createPdfKitDocument(dd, options);
-
-    pdfDoc.pipe(fs.createWriteStream('out/makePDF.pdf'));
+    pdfDoc.pipe(fs.createWriteStream('out/makePDF.pdf'))
     pdfDoc.end();
 }
