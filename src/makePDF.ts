@@ -3,6 +3,7 @@ import fs from 'fs'
 import {BufferOptions, TDocumentDefinitions} from "pdfmake/interfaces"
 
 import {defaultStyle, styles} from "./styles"
+import getMetaData from "./parts/meta";
 import getMain from "./parts/main"
 import getSectionA from "./parts/sectionA"
 import {seperator} from "./parts/utils"
@@ -20,6 +21,7 @@ const fonts = {
 
 function getDocumentDefinition(phdVariables: IInputVariables): TDocumentDefinitions {
     return {
+        info: getMetaData(phdVariables),
         content: [
             getMain(phdVariables),
             seperator,

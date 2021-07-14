@@ -52,5 +52,15 @@
       "credits": "12"
     }
   ],
-  "HaveTheObjectivesChangedInThePastYearIfSoWhyAndHow": "Have the objectives changed in the past year? If so, why and how? "
+  "HaveTheObjectivesChangedInThePastYearIfSoWhyAndHow": "Have the objectives changed in the past year? If so, why and how? ",
+  "metadata": {
+    "timezone": "Europe/Zurich",
+    "offset": 120,
+    "origin": "http://localhost:3000",
+    "referrer": "http://localhost:3000/",
+    "browserName": "Netscape",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
+    "pathName": "/tasks/2251799813685368",
+    "onLine": true
+  }
 }
