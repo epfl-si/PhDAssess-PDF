@@ -55,5 +55,6 @@ describe('PDF generation result', () => {
     expect(JSON.parse(data.info.Custom.activityLogs)[0]).to.include(
       {referrer: "http://localhost:3000/"}, `Can't find the referere in the activity logs : ${data.info.Custom.activityLogs}`
     )
+    console.log("looks all fine!")
   })
 })
