@@ -2,7 +2,7 @@
   "name": "phd-assess-pdf",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/makePDF.js",
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts"
   },
@@ -18,7 +18,6 @@
     "zeebe-node": "^1.3.2"
   },
   "devDependencies": {
-
     "@types/chai": "^4.2.21",
     "@types/chai-fs": "^2.0.2",
     "@types/crypto-js": "^4.0.1",
