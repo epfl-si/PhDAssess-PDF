@@ -1,4 +1,4 @@
 ## makePDF usage
 
-Try it manually with the data sample (:
-`node --experimental-json-modules --loader ts-node/esm -r dotenv/config --es-module-specifier-resolution=node ./src/buildPDF.js`
+Try it manually with the data sample :
+`ts-node -r dotenv/config ./src/buildPDF.ts`

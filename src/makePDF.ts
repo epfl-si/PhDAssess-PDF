@@ -9,13 +9,12 @@ import getSectionA from "./parts/sectionA"
 import {seperator} from "./parts/utils"
 import {IInputVariables} from "zeebe-node"
 
-
 const fonts = {
     Helvetica: {
         normal: 'Helvetica',
         bold: 'Helvetica-Bold',
         italics: 'Helvetica-Oblique',
-        //bolditalics: 'Helvetica-BoldOblique',
+        //boldItalics: 'Helvetica-BoldOblique',
     },
 }
 

@@ -1,31 +1,28 @@
-import {TDocumentInformation as TDocumentInformationPDFMake} from "pdfmake/interfaces"
 import {IInputVariables} from "zeebe-node"
+import {TDocumentInformation as TDocumentInformationPDFMake} from "pdfmake/interfaces";
 
-
-interface FormioMetadata {
-    timezone?: string;
-    offset?: number;
-    origin?: string;
-    referrer?: string;
-    browserName?: string;
-    userAgent?: string;
-    pathName?: string;
-    onLine?: boolean;
+interface FormioActivityLog {
+  timezone?: string;
+  offset?: number;
+  origin?: string;
+  referrer?: string;
+  browserName?: string;
+  userAgent?: string;
+  pathName?: string;
+  onLine?: boolean;
 }
 
-interface TDocumentInformation extends TDocumentInformationPDFMake {
-    /** every metadata for every form fulfilled */
-    metadata?: string | FormioMetadata;
+export interface TDocumentMetaInformation extends TDocumentInformationPDFMake {
+  /** every metadata for every form fulfilled */
+  activityLogs?: FormioActivityLog[];
 }
 
-export default function getMetaData(phdVariables: IInputVariables) {
-    const info : TDocumentInformation = {
+export default function getMetaData(phdVariables: IInputVariables) : TDocumentMetaInformation {
+    return {
         title: 'awesome Document',
         author: 'john doe',
         subject: 'subject of document',
         keywords: 'keywords for document',
-        metadata: `${JSON.stringify(phdVariables.metadata)}`,
+        activityLogs: phdVariables.activityLogs,
     }
-
-    return info
 }
