@@ -1,6 +1,7 @@
 import {IInputVariables} from "zeebe-node"
 import {TDocumentInformation as TDocumentInformationPDFMake} from "pdfmake/interfaces";
 
+/*
 interface FormioActivityLog {
   timezone?: string;
   offset?: number;
@@ -10,11 +11,11 @@ interface FormioActivityLog {
   userAgent?: string;
   pathName?: string;
   onLine?: boolean;
-}
+}*/
 
 export interface TDocumentMetaInformation extends TDocumentInformationPDFMake {
   /** every metadata for every form fulfilled */
-  activityLogs?: FormioActivityLog[];
+  activityLogs?: string;
 }
 
 export default function getMetaData(phdVariables: IInputVariables) : TDocumentMetaInformation {
@@ -23,6 +24,6 @@ export default function getMetaData(phdVariables: IInputVariables) : TDocumentMe
         author: 'john doe',
         subject: 'subject of document',
         keywords: 'keywords for document',
-        activityLogs: phdVariables.activityLogs,
+        activityLogs: JSON.stringify(phdVariables.activityLogs),
     }
 }
