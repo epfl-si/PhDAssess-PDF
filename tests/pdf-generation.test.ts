@@ -55,6 +55,20 @@ describe('PDF generation result', () => {
     expect(JSON.parse(data.info.Custom.activityLogs)[0]).to.include(
       {referrer: "http://localhost:3000/"}, `Can't find the referere in the activity logs : ${data.info.Custom.activityLogs}`
     )
+
+    const pageNumber = 1
+    const page = await doc.getPage(pageNumber)
+    const content = await page.getTextContent()
+
+    // Content contains lots of information about the text layout and
+    // styles, but we need only strings at the moment
+    const strings = content.items.map(function (item:any) {
+      return item.str;
+    });
+
+    expect(strings.join("")).to.have.string("Name of candidate")
+    expect(strings.join("")).to.have.string("Date of candidacy exam")
+
     console.log("looks all fine!")
   })
 })
