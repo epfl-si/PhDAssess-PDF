@@ -6,7 +6,9 @@ import {defaultStyle, styles} from "./styles"
 import getMetaData from "./parts/meta";
 import getMain from "./parts/main"
 import getSectionA from "./parts/sectionA"
-import {seperator} from "./parts/utils"
+import getSectionB from "./parts/sectionB"
+import getSectionC from "./parts/sectionC"
+import getSectionD from "./parts/sectionD"
 import {IInputVariables} from "zeebe-node"
 
 const fonts = {
@@ -23,8 +25,10 @@ function getDocumentDefinition(phdVariables: IInputVariables): TDocumentDefiniti
         info: getMetaData(phdVariables),
         content: [
             getMain(phdVariables),
-            seperator,
             getSectionA(phdVariables),
+            getSectionB(phdVariables),
+            getSectionC(phdVariables),
+            getSectionD(phdVariables),
         ],
         styles,
         defaultStyle: defaultStyle

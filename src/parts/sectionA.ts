@@ -1,40 +1,70 @@
 import {Content} from "pdfmake/interfaces"
 import {IInputVariables} from "zeebe-node"
+import {seperator} from "./utils"
+
 
 
 export default function getSectionA(phdVariables: IInputVariables) {
-    const header: Content = [{text: 'Section A: Basic information', style: 'header'}, {text: '\n'}]
-    const phdStudent: Content = [{text: 'Name of candidate', style: 'subheader'}, {text: phdVariables.phdStudentSciper }, {text: '\n'}]
-    const tentativeThesisTitle: Content = [{text: 'Tentative thesis title', style: 'subheader'}, {text: phdVariables.tentativeThesisTitle }, {text: '\n'}]
-    const thesisDirectorSciper: Content = [{text: 'PhD thesis director', style: 'subheader'}, {text: phdVariables.thesisDirectorSciper }, {text: '\n'}]
-    const thesisCoDirectorSciper: Content = [{text: 'PhD thesis co-director', style: 'subheader'}, {text: phdVariables.thesisCoDirectorSciper }, {text: '\n'}]
-    const dateOfCandidacyExam: Content = [{text: 'Date of candidacy exam', style: 'subheader'}, {text: phdVariables.dateOfCandidacyExam }, {text: '\n'}]
-    const taDutiesHoursAndOrCoursesCompleted : Content = [{text: 'TA duties. Hours and/or courses completed', style: 'subheader'}, {text: phdVariables.taDutiesHoursAndOrCoursesCompleted }, {text: '\n'}]
 
-    const listBelowObtainedCreditsAndPlannedCourses = [
-        [{text: 'Credits and planned courses', style: 'subheader'}],
-        Array.from(phdVariables.listBelowObtainedCreditsAndPlannedCourses, (course : IInputVariables) => [{
-                columns: [
-                    [{text: 'Year/semester', style: 'subheader'}, {text: course.yearSemester}, {text: '\n'}],
-                    [{text: 'Course (number/name)', style: 'subheader'}, {text: course.courseNumberName}, {text: '\n'}],
-                    [{text: 'Credits', style: 'subheader'}, {text: course.credits}, {text: '\n'}],
+    const section: Content = [{text: 'Section A: Basic information', style: 'header'}]
+    const nameOfCandidate: Content = { text:[{text: 'Name of candidate : ',  bold: true}, phdVariables.nameOfCandidate ]}
+    const tentativeThesisTitle: Content = { text: [{text: 'Tentative thesis title : ', bold: true}, {text: phdVariables.tentativeThesisTitle }]}
+    const phDThesisDirector: Content = { text: [{text: 'PhD thesis director : ', bold: true}, {text: phdVariables.phDThesisDirector }]}
+    const phDThesisCoDirector: Content = { text: [{text: 'PhD thesis co-director : ', bold: true}, {text: phdVariables.phDThesisCoDirector }]}
+    const dateOfCandidacyExam: Content = { text: [{text: 'Date of candidacy exam : ', bold: true}, {text: phdVariables.dateOfCandidacyExam }, seperator]}
+
+    const taDutiesHoursAndOrCoursesCompleted : Content = { text: [{text: 'TA duties ',bold: true}, {text: '(Hours and/or courses completed) : '}, {text: phdVariables.taDutiesHoursAndOrCoursesCompleted }, seperator]}
+
+    const coursesCredits: Content = {text: [{text: 'Courses =>     ',bold: true},
+                                            {text: 'Credits needed :  '}, {text: phdVariables.creditsNeeded },
+                                            {text: '          Credits completed :  '}, {text: phdVariables.coursesCreditsCompleted },
+                                            {text: '          Credits remaining :  '}, {text: phdVariables.coursesCreditsRremaining}, seperator]}
+    const listBelowObtainedCredits = {text : 'List below obtained credits :'}
+    const listcoursesCreditsCompleted: Content= {
+        style: 'table',
+        table: {
+            headerRows: 1,
+            body: [
+              [{text: 'Year/semester', style: 'tableHeader'}, {text: 'Course (number/name)', style: 'tableHeader'}, {text: 'Credits', style: 'tableHeader'}],
+              ...Array.from(phdVariables.listcoursesCreditsCompleted, (course : IInputVariables) => [
+                {text: course.yearSemester},
+                {text: course.courseNumberName},
+                {text: course.credits},
+              ]),
+            ]
+          }
+        }
+        const listBelowPlannedCourses = {text : 'List below planned courses :'}
+        const listcoursesCreditsPlanned: Content= {
+            style: 'table',
+            table: {
+                headerRows: 1,
+                body: [
+                  [{text: 'Year/semester', style: 'tableHeader'}, {text: 'Course (number/name)', style: 'tableHeader'}, {text: 'Credits', style: 'tableHeader'}],
+                  ...Array.from(phdVariables.listBelowPlannedCourses, (course : IInputVariables) => [
+                    {text: course.yearSemester},
+                    {text: course.courseNumberName},
+                    {text: course.credits},
+                  ]),
                 ]
-            }]
-        )
-    ]
+              }
+            }
 
     return [
-        header,
-        phdStudent,
+        seperator,
+        seperator,
+        section,
+        nameOfCandidate,
         tentativeThesisTitle,
-        {
-            columns: [
-                thesisDirectorSciper,
-                thesisCoDirectorSciper,
-            ],
-        },
+        phDThesisDirector,
+        phDThesisCoDirector,
         dateOfCandidacyExam,
         taDutiesHoursAndOrCoursesCompleted,
-        listBelowObtainedCreditsAndPlannedCourses,
+        coursesCredits,
+        listBelowObtainedCredits,
+        listcoursesCreditsCompleted,
+        listBelowPlannedCourses,
+        listcoursesCreditsPlanned,
+
     ]
 }

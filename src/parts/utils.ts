@@ -1,2 +1,2 @@
-export const seperator = {text : '\n'}
+export const seperator = {text : '\n\n'}
 
