@@ -21,7 +21,7 @@ describe('PDF generation result', () => {
     // 1. ARRANGE
     const outputFile = `${appRoot}/out/makePDF.pdf`
 
-    if (fs.statSync(outputFile).isFile()) {
+    if (fs.existsSync(outputFile) && fs.statSync(outputFile).isFile()) {
       try {
         console.log("Deleting existing pdf for building test...")
         fs.unlinkSync(outputFile)
@@ -69,6 +69,6 @@ describe('PDF generation result', () => {
     expect(strings.join("")).to.have.string("Name of candidate")
     expect(strings.join("")).to.have.string("Date of candidacy exam")
 
-    console.log("looks all fine!")
+    console.log("looks all fine! You can find the resulted pdf into ./out")
   })
 })
