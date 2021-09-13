@@ -6,11 +6,13 @@ const assert = chai.assert
 const expect = chai.expect
 
 const appRoot = require('app-root-path')
-import fs from "fs"
+import * as fs from "fs"
 
 const sleep = require('util').promisify(setTimeout)
 
 import makePDF from "../src/makePDF"
+
+// @ts-ignore
 import sampleData from "../sample.json"
 
 const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js")
