@@ -1,4 +1,4 @@
 import makePDF from "./makePDF";
-import variables from "../sample.json"
+import variables from "./sample.json"
 
 makePDF(variables)
