@@ -4,11 +4,10 @@
   "description": "",
   "main": "src/makePDF.js",
   "scripts": {
-    "start": "NODE_PATH=./build npm run build && node build/index.js",
+    "start": "ts-node -r dotenv/config ./src/index.ts",
     "build": "tsc -p .",
     "build-docker": "npm run build && docker build --tag phd-assess-pdf .",
-    "test": "mocha -r ts-node/register tests/**/*.test.ts",
-    "dev": "node src/index.ts"
+    "test": "mocha -r ts-node/register tests/**/*.test.ts"
   },
   "keywords": [],
   "author": "",
