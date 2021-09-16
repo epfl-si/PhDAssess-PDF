@@ -4,7 +4,7 @@ import debug_ from 'debug'
 
 const debug = debug_('phd-assess/zeebeWorker')
 
-const zBClient = new ZBClient({
+export const zBClient = new ZBClient({
   pollInterval: Duration.seconds.of(10),
 })
 
