@@ -1,6 +1,7 @@
 import PdfPrinter from 'pdfmake'
 import fs from 'fs'
 import {BufferOptions, TDocumentDefinitions} from "pdfmake/interfaces"
+import getStream from 'get-stream'
 
 import {defaultStyle, styles} from "./styles"
 import getMetaData from "./parts/meta";
@@ -12,36 +13,53 @@ import getSectionD from "./parts/sectionD"
 import {IInputVariables} from "zeebe-node"
 
 const fonts = {
-    Helvetica: {
-        normal: 'Helvetica',
-        bold: 'Helvetica-Bold',
-        italics: 'Helvetica-Oblique',
-        //boldItalics: 'Helvetica-BoldOblique',
-    },
+  Helvetica: {
+    normal: 'Helvetica',
+    bold: 'Helvetica-Bold',
+    italics: 'Helvetica-Oblique',
+    //boldItalics: 'Helvetica-BoldOblique',
+  },
 }
 
 function getDocumentDefinition(phdVariables: IInputVariables): TDocumentDefinitions {
-    return {
-        info: getMetaData(phdVariables),
-        content: [
-            getMain(phdVariables),
-            getSectionA(phdVariables),
-            getSectionB(phdVariables),
-            getSectionC(phdVariables),
-            getSectionD(phdVariables),
-        ],
-        styles,
-        defaultStyle: defaultStyle
-    }
+  return {
+    info: getMetaData(phdVariables),
+    content: [
+      getMain(phdVariables),
+      getSectionA(phdVariables),
+      getSectionB(phdVariables),
+      getSectionC(phdVariables),
+      getSectionD(phdVariables),
+    ],
+    styles,
+    defaultStyle: defaultStyle
+  }
 }
 
-export default function makePDF(phdVariables: IInputVariables) {
-    const printer = new PdfPrinter(fonts)
+/*
+ * Write the pdf into 'out/makePDF.pdf'
+ */
+export function makePDFFile(phdVariables: IInputVariables) {
+  const printer = new PdfPrinter(fonts)
 
-    const options: BufferOptions = {}
-    const pdfDoc = printer.createPdfKitDocument(getDocumentDefinition(phdVariables),
-        options)
+  const options: BufferOptions = {}
+  const pdfDoc = printer.createPdfKitDocument(getDocumentDefinition(phdVariables),
+    options)
 
-    pdfDoc.pipe(fs.createWriteStream('out/makePDF.pdf'))
-    pdfDoc.end();
+  pdfDoc.pipe(fs.createWriteStream('out/makePDF.pdf'))
+  pdfDoc.end();
+}
+
+/*
+ * Return the pdf as a base64 string
+ */
+export async function makePDFString(phdVariables: IInputVariables): Promise<string> {
+  const printer = new PdfPrinter(fonts)
+
+  const options: BufferOptions = {}
+  const pdfDoc = printer.createPdfKitDocument(getDocumentDefinition(phdVariables), options)
+  pdfDoc.end()
+
+  const bufferedPdf = await getStream.buffer(pdfDoc)
+  return Buffer.from(bufferedPdf).toString('base64')
 }

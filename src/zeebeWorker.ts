@@ -1,6 +1,9 @@
 import {ZBClient} from "zeebe-node";
 import {Duration, ZBWorkerTaskHandler} from 'zeebe-node'
 import debug_ from 'debug'
+import {encrypt} from "./encryption";
+import {makePDFString} from "./makePDF";
+import sampleData from "./sample.json"
 
 const debug = debug_('phd-assess/zeebeWorker')
 
@@ -15,23 +18,31 @@ const handler: ZBWorkerTaskHandler = async (
   _,
   worker
   ) => {
-  worker.log(`Task variables ${job.variables}`)
-  debug(`Zeebe worker "${taskType}" started`);
+  worker.debug(`Task variables ${job.variables}`)
+  debug(`Job "${taskType}" started`);
 
-  // AfterTask worker business logic goes here
+  // TODO: use job variables :
+  // const jobVariables = decryptVariables(job.variables)
+  //const generatedPDF: string = await makePDFString(jobVariables)
+  const generatedPDF: string = await makePDFString(sampleData)
+
+  debug(`Job is complete, adding the data PDF to it (a b65 encrypted string`);
+
   const updateBrokerVariables = {
-    dateSent: 'newValue',
+    PDF: encrypt(generatedPDF),
   }
+
   return job.complete(updateBrokerVariables)
 }
 
 export const startWorker = () => {
   console.log("starting worker")
+  console.log(`worker started, awaiting for ${taskType} jobs...`)
   return zBClient.createWorker({
     taskType: taskType,
     maxJobsToActivate: 5,
     // Set timeout, the same as we will ask yourself if the job is still up
-    timeout: Duration.milliseconds.of(5),
+    timeout: Duration.minutes.of(2),
     // load every job into the in-memory server db
     taskHandler: handler
   })

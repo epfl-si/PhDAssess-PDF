@@ -1,6 +1,4 @@
-import makePDF from "./makePDF";
-import variables from "./sample.json"
-import {zBClient} from "./zeebeWorker";
+import {startWorker, zBClient} from "./zeebeWorker";
 
 process.on( 'SIGINT', function() {
     console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
@@ -10,4 +8,4 @@ process.on( 'SIGINT', function() {
     process.exit( );
 })
 
-makePDF(variables)
+startWorker()
