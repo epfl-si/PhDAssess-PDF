@@ -47,5 +47,3 @@ export const startWorker = () => {
     taskHandler: handler
   })
 }
-
-startWorker()
