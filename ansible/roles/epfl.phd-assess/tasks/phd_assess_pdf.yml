@@ -64,7 +64,7 @@
               - name: 'ZEEBE_ADDRESS'
                 value: 'zeebe-broker:26500'
               - name: 'ZEEBE_TASK_TYPE'
-                value: 'phdSendPDF'
+                value: 'phdBuildPDF'
               - name: "{{ encryption_key_name }}"
                 valueFrom:
                   secretKeyRef:
