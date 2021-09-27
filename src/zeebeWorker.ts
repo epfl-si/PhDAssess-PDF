@@ -1,5 +1,6 @@
 import {ZBClient} from "zeebe-node";
 import {Duration, ZBWorkerTaskHandler} from 'zeebe-node'
+import __ from 'lodash'
 import debug_ from 'debug'
 import {encrypt} from "./encryption";
 import {makePDFString} from "./makePDF";
@@ -20,6 +21,11 @@ const handler: ZBWorkerTaskHandler = async (
   ) => {
   worker.debug(`Task variables ${job.variables}`)
   debug(`Job "${taskType}" started`);
+
+  console.log("Received and starting a task", {
+    taskType,
+    job: __.omit(job, 'customHeaders')
+  })
 
   // TODO: use job variables :
   // const jobVariables = decryptVariables(job.variables)
