@@ -7,7 +7,7 @@ const expect = chai.expect
 
 import {makePDFString} from "../src/makePDF"
 import sampleData from "../src/sample.json"
-import {PDFInfo} from "pdfjs-dist";
+import {PDFInfo} from "pdfjs-dist/index";
 
 const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js")
 
