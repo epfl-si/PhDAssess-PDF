@@ -14,10 +14,9 @@ export default function getSectionA(phdVariables: IInputVariables) {
     const thesisCoDirectorComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.thesisCoDirectorComment},seperator ]}
     const agreeThesisDirector: Content = { text:[{text: 'Thesis Director review: ',  bold: true}, {text : '\n'}, {text: phdVariables.thesisDirectorDateOfReview}, {text : '       '}, {text: phdVariables.agreeThesisDirector} ]}
     const thesisDirectorComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.thesisDirectorComment},seperator ]}
-    const agreePhd: Content = { text:[{text: 'Doctoral Student review: ',  bold: true}, {text : '\n'}, {text: phdVariables.phdDateOfReview1}, {text : '       '}, {text: phdVariables.agreePhd} ]}
+    const agreePhd: Content = { text:[{text: 'Doctoral Student review: ',  bold: true}, {text : '\n'}, {text: phdVariables.phdDateOfReview}, {text : '       '}, {text: phdVariables.agreePhd} ]}
     const phdComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.phdComment},seperator ]}
-    const programDirectorReview: Content = { text:[{text: 'Program Director ',  bold: true}, {text : 'checked the report on '}, {text: phdVariables.programDirectorDateOfReview} ]}
-    const programDirectorComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.programDirectorComment},seperator ]}
+    const programDirectorReview: Content = { text:[{text: 'Program Director ',  bold: true}, {text : 'checked the report on '}, {text: phdVariables.programDirectorDate} ]}
     const mentorMeet: Content = { text:[{text: 'Mentor and doctoral student have met ',  bold: true}, {text : '\nValidate by the mentor on '}, {text: phdVariables.mantorDate}, {text : '\nValidate by the doctoral student on '}, {text: phdVariables.phdDate} ]}
 
     return [
@@ -33,7 +32,6 @@ export default function getSectionA(phdVariables: IInputVariables) {
         agreePhd,
         phdComment,
         programDirectorReview,
-        programDirectorComment,
         mentorMeet,
     ]
 }

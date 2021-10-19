@@ -1,43 +1,47 @@
 {
-  "assigneeSciper": "2021-07-03",
   "doctoralProgramName" : "EDMI Microsystems and Microelectronics",
   "dateOfEnrolment" : "2021-02-15",
   "year" : "1styear",
-  "nameOfCandidate" : "Firstname LASTNAME",
-  "phDThesisDirector" : "phDThesisDirector",
-  "phDThesisCoDirector" : "phDThesisCoDirector" ,
+  "phdStudentName" : "Firstname LASTNAME",
+  "thesisDirectorName" : "phDThesisDirector",
+  "thesisCoDirectorName" : "phDThesisCoDirector" ,
   "dateOfCandidacyExam" : "dateOfCandidacyExam" ,
   "taDutiesHoursAndOrCoursesCompleted"  : "taDutiesHoursAndOrCoursesCompleted" ,
   "creditsNeeded" :  "30",
-  "coursesCreditsCompleted" : "5",
-  "coursesCreditsRremaining" : "3",
-  "listcoursesCreditsCompleted": [
+  "totalCreditsObtained" : "5",
+  "totalCreditsPlanned" : "3",
+  "listBelowObtainedCredits": [
     {
-      "yearSemester": "2020/2",
-      "courseNumberName": "45",
-      "credits": "2"
+      "yearObtained": "2020",
+      "semestreObtained": "spring",
+      "courseNumberNameObtained": "45",
+      "creditsObtained": "2"
     },
     {
-      "yearSemester": "2021/1",
-      "courseNumberName": "55",
-      "credits": "2"
+      "yearObtained": "2020",
+      "semestreObtained": "spring",
+      "courseNumberNameObtained": "45",
+      "creditsObtained": "2"
     },
     {
-      "yearSemester": "2022/1",
-      "courseNumberName": "65",
-      "credits": "1"
+      "yearObtained": "2020",
+      "semestreObtained": "spring",
+      "courseNumberNameObtained": "45",
+      "creditsObtained": "1"
     }
   ],
   "listBelowPlannedCourses": [
     {
-      "yearSemester": "2021/2",
-      "courseNumberName": "111",
-      "credits": "2"
+      "yearPlanned": "2021",
+      "semestrePlanned": "fall",
+      "courseNumberNamePlanned": "111",
+      "creditsPlanned": "2"
     },
     {
-      "yearSemester": "2022/1",
-      "courseNumberName": "145",
-      "credits": "1"
+      "yearPlanned": "2022",
+      "semestrePlanned": "fall",
+      "courseNumberNamePlanned": "145",
+      "creditsPlanned": "1"
     }
   ],
   "goalsOfTheThesis": "Goals of the thesis",
@@ -78,11 +82,10 @@
   "thesisDirectorDateOfReview": "2021-07-03",
   "thesisDirectorComment":  "Thesis director comment",
   "agreeThesisDirector": "I do not agree",
-  "phdDateOfReview1": "2021-07-04",
+  "phdDateOfReview": "2021-07-04",
   "phdComment":  "PhD comment",
   "agreePhd": "I agree",
-  "programDirectorDateOfReview": "2021-07-05",
-  "programDirectorComment" : "Program Director comment",
+  "programDirectorDate": "2021-07-05",
   "mantorDate":"2021-07-06",
   "phdDate": "2021-07-07",
   "activityLogs": [
