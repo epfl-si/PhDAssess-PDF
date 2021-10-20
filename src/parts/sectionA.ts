@@ -9,8 +9,8 @@ export default function getSectionA(phdVariables: IInputVariables) {
     const section: Content = [{text: 'Basic information', style: 'header'}]
     const nameOfCandidate: Content = { text:[{text: 'Name of candidate: ',  bold: true}, phdVariables.phdStudentName ]}
     const tentativeThesisTitle: Content = { text: [{text: 'Tentative thesis title: ', bold: true}, {text: phdVariables.tentativeThesisTitle }]}
-    const phDThesisDirector: Content = { text: [{text: 'PhD thesis director: ', bold: true}, {text: phdVariables.thesisDirectorName }]}
-    const phDThesisCoDirector: Content = { text: [{text: 'PhD thesis co-director: ', bold: true}, {text: phdVariables.thesisCoDirectorName }]}
+    const phDThesisDirector: Content = { text: [{text: 'Thesis director: ', bold: true}, {text: phdVariables.thesisDirectorName }]}
+    const phDThesisCoDirector: Content = { text: [{text: 'Thesis co-director: ', bold: true}, {text: phdVariables.thesisCoDirectorName }]}
     const dateOfCandidacyExam: Content = { text: [{text: 'Date of candidacy exam: ', bold: true}, {text: phdVariables.dateOfCandidacyExam }, seperator]}
 
     const taDutiesHoursAndOrCoursesCompleted : Content = { text: [{text: 'TA duties ',bold: true}, {text: '(Hours and/or courses completed): '}, {text: phdVariables.taDutiesHoursAndOrCoursesCompleted }, seperator]}
