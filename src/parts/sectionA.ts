@@ -25,10 +25,9 @@ export default function getSectionA(phdVariables: IInputVariables) {
         table: {
             headerRows: 1,
             body: [
-              [{text: 'Year/semester', style: 'tableHeader'}, {text: 'Course (name and number)', style: 'tableHeader'}, {text: 'Credits', style: 'tableHeader'}],
+              [{text: 'Year / semester', style: 'tableHeader'}, {text: 'Course (name and number)', style: 'tableHeader'}, {text: 'Credits', style: 'tableHeader'}],
               ...Array.from(phdVariables.listBelowObtainedCredits, (course : IInputVariables) => [
-                {text: course.yearObtained},
-                {text: course.semestreObtained},
+                {text: `${course.yearObtained} / ${course.semestreObtained}`},
                 {text: course.courseNumberNameObtained},
                 {text: course.creditsObtained},
               ]),
@@ -41,10 +40,9 @@ export default function getSectionA(phdVariables: IInputVariables) {
             table: {
                 headerRows: 1,
                 body: [
-                  [{text: 'Year/semester', style: 'tableHeader'}, {text: 'Course (name and number)', style: 'tableHeader'}, {text: 'Credits', style: 'tableHeader'}],
+                  [{text: 'Year / semester', style: 'tableHeader'}, {text: 'Course (name and number)', style: 'tableHeader'}, {text: 'Credits', style: 'tableHeader'}],
                   ...Array.from(phdVariables.listBelowPlannedCourses, (course : IInputVariables) => [
-                    {text: course.yearPlanned},
-                    {text: course.semestrePlanned},
+                    {text: `${course.yearPlanned} / ${course.semestrePlanned}`},
                     {text: course.courseNumberNamePlanned},
                     {text: course.creditsPlanned},
                   ]),
