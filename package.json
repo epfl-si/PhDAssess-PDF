@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/makePDF.js",
   "scripts": {
-    "start": "ts-node -r dotenv/config ./src/index.ts",
-    "build": "tsc -p .",
+    "start": "genversion --es6 src/version.js && ts-node -r dotenv/config ./src/index.ts",
+    "build": "tsc -p . && genversion build/version.js",
     "build-docker": "npm run build && docker build --tag phd-assess-pdf .",
     "generate-local-pdf": "ts-node -r dotenv/config scripts/generateLocalPDF.ts",
     "test": "mocha -r ts-node/register tests/**/*.test.ts"
@@ -19,6 +19,7 @@
     "crypto-js": "^4.0.0",
     "debug": "^4.3.2",
     "dotenv": "^10.0.0",
+    "genversion": "^3.0.2",
     "get-stream": "^6.0.1",
     "lodash": "^4.17.21",
     "pdfmake": "^0.2.0",
