@@ -4,7 +4,7 @@ import { LoggerAdaptToConsole } from "console-log-json";
 require('dotenv').config()
 
 // Start logging as JSON if we are not in debug mode
-if (process.env.DEBUG?.search('/\*/')) {
+if (!process.env.DEBUG?.search('/\*/')) {
   LoggerAdaptToConsole()
 }
 
