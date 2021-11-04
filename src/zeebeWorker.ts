@@ -1,9 +1,9 @@
 import {ZBClient} from "zeebe-node";
 import {Duration, ZBWorkerTaskHandler} from 'zeebe-node'
-import __ from 'lodash'
 import debug_ from 'debug'
 import {decryptVariables, encrypt} from "./encryption";
 import {makePDFString} from "./makePDF";
+import {flatPick} from "./utils";
 const version = require('./version.js');
 
 const debug = debug_('phd-assess/zeebeWorker')
@@ -22,9 +22,19 @@ const handler: ZBWorkerTaskHandler = async (
   worker.debug(`Task variables ${job.variables}`)
   debug(`Job "${taskType}" started`);
 
-  console.log("Received and starting a task", {
+  console.log("Received and starting task", {
     taskType,
-    job: __.omit(job, 'customHeaders')
+    job: flatPick(job,
+      [
+        'key',
+        'workflowInstanceKey',
+        'workflowDefinitionVersion',
+        'elementId',
+        'worker',
+        'variables.created_at',
+        'variables.created_by',
+      ]
+    )
   })
 
 
