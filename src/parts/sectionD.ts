@@ -20,7 +20,7 @@ export default function getSectionA(phdVariables: IInputVariables) {
     const phdComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.phdComment},seperator ]}
     const programDirectorReview: Content = { text:[{text: 'Program Director ',  bold: true}, {text : 'checked the report on '}, {text: phdVariables.programDirectorDate} ]}
     const programDirectorphdComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.programDirectorComment}, seperator ]}
-    const mentorMeet: Content = { text:[{text: 'Mentor and doctoral student have met ',  bold: true}, {text : '\nValidate by the mentor on '}, {text: phdVariables.mentorDate}, {text : '\nValidate by the doctoral student on '}, {text: phdVariables.phdDate} ]}
+    const mentorMeet: Content = { text:[{text: 'Mentor and doctoral student have met ',  bold: true}, {text : '\nValidate by the mentor on '}, {text: phdVariables.mentorDate}, {text : '\nValidate by the doctoral student on '}, {text: phdVariables.phdDate}, seperator  ]}
 
     return [
         section,
@@ -34,8 +34,8 @@ export default function getSectionA(phdVariables: IInputVariables) {
         thesisDirectorComment,
         agreePhd,
         phdComment,
+        mentorMeet,
         programDirectorReview,
         programDirectorphdComment,
-        mentorMeet,
     ]
 }
