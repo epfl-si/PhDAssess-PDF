@@ -5,7 +5,7 @@ import {seperator} from "./utils"
 
 export default function getSectionA(phdVariables: IInputVariables) {
 
-    if ( phdVariables.year == "1stYear" )
+    if ( phdVariables.year == "1st year" )
     {
       return []
     } else
