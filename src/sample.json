@@ -6,6 +6,7 @@
   "phdStudentSciper" : "123456",
   "thesisDirectorName" : "phDThesisDirector",
   "thesisCoDirectorName" : "CoDir Name" ,
+  "programDirectorName" : "ProgDir Name",
   "dateOfCandidacyExam" : "dateOfCandidacyExam" ,
   "taDutiesHoursAndOrCoursesCompleted"  : "taDutiesHoursAndOrCoursesCompleted" ,
   "creditsNeeded" :  "30",
