@@ -1,4 +1,4 @@
-- name: Locally build and tag phd-assess-meteor image
+- name: Locally build and tag phd-assess-pdf image
   tags:
     - pdf-build
     - never
