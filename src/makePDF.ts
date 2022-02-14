@@ -5,6 +5,8 @@ import getStream from 'get-stream'
 
 import {defaultStyle, styles} from "./styles"
 import getMetaData from "./parts/meta";
+import getHeader from "./parts/header"
+import getProvisional from "./parts/provisional"
 import getMain from "./parts/main"
 import getSectionA from "./parts/sectionA"
 import getSectionB from "./parts/sectionB"
@@ -25,6 +27,8 @@ function getDocumentDefinition(phdVariables: IInputVariables): TDocumentDefiniti
   return {
     info: getMetaData(phdVariables),
     content: [
+      getHeader(),
+      getProvisional(),
       getMain(phdVariables),
       getSectionA(phdVariables),
       getSectionB(phdVariables),
