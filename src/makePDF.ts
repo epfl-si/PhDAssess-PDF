@@ -11,6 +11,8 @@ import getMain from "./parts/main"
 import getSectionA from "./parts/sectionA"
 import getSectionB from "./parts/sectionB"
 import getSectionC from "./parts/sectionC"
+import getSectionCCommentsAll from "./parts/sectionCCommentsAll"
+import getSectionCCommentsWithoutCommon from "./parts/sectionCCommentsWithoutCommon"
 import getSectionD from "./parts/sectionD"
 import {IInputVariables} from "zeebe-node"
 
@@ -33,6 +35,7 @@ function getDocumentDefinition(phdVariables: IInputVariables): TDocumentDefiniti
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
+      getSectionCCommentsAll(phdVariables),
       getSectionD(phdVariables),
     ],
     styles,

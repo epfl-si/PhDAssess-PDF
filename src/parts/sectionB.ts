@@ -3,7 +3,7 @@ import {IInputVariables} from "zeebe-node"
 import {seperator} from "./utils"
 
 
-export default function getSectionA(phdVariables: IInputVariables) {
+export default function getSectionB(phdVariables: IInputVariables) {
 
     if ( phdVariables.year == "1st year" )
     {
