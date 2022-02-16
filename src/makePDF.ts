@@ -14,6 +14,8 @@ import getSectionC from "./parts/sectionC"
 import getSectionCCommentsAll from "./parts/sectionCCommentsAll"
 import getSectionCCommentsWithoutCommon from "./parts/sectionCCommentsWithoutCommon"
 import getSectionD from "./parts/sectionD"
+import getSectionDAgree from "./parts/sectionDAgree"
+import getFooter from "./parts/footer"
 import {IInputVariables} from "zeebe-node"
 
 const fonts = {
@@ -37,6 +39,8 @@ function getDocumentDefinition(phdVariables: IInputVariables): TDocumentDefiniti
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables),
       getSectionD(phdVariables),
+      getSectionDAgree(phdVariables),
+      getFooter(phdVariables),
     ],
     styles,
     defaultStyle: defaultStyle
