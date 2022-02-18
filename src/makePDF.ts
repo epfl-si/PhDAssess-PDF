@@ -100,16 +100,16 @@ function getDocumentDefinition(
  * Write the pdf into 'out/makePDF.pdf'
  */
 export function makePDFFile(phdVariables: IInputVariables, pdfType: String | undefined) {
-  const printer = new PdfPrinter(fonts);
+  const printer = new PdfPrinter(fonts)
 
-  const options: BufferOptions = {};
+  const options: BufferOptions = {}
   const pdfDoc = printer.createPdfKitDocument(
     getDocumentDefinition(phdVariables, pdfType),
     options
-  );
+  )
 
-  pdfDoc.pipe(fs.createWriteStream("out/makePDF.pdf"));
-  pdfDoc.end();
+  pdfDoc.pipe(fs.createWriteStream("out/makePDF.pdf"))
+  pdfDoc.end()
 }
 
 /*
@@ -119,15 +119,15 @@ export async function makePDFString(
   phdVariables: IInputVariables,
   pdfType: String | undefined
 ): Promise<string> {
-  const printer = new PdfPrinter(fonts);
+  const printer = new PdfPrinter(fonts)
 
-  const options: BufferOptions = {};
+  const options: BufferOptions = {}
   const pdfDoc = printer.createPdfKitDocument(
     getDocumentDefinition(phdVariables, pdfType),
     options
-  );
+  )
   pdfDoc.end();
 
-  const bufferedPdf = await getStream.buffer(pdfDoc);
-  return Buffer.from(bufferedPdf).toString("base64");
+  const bufferedPdf = await getStream.buffer(pdfDoc)
+  return Buffer.from(bufferedPdf).toString("base64")
 }
