@@ -1,7 +1,6 @@
 import {ZBClient} from "zeebe-node";
 import {Duration, ZBWorkerTaskHandler} from 'zeebe-node'
 import debug_ from 'debug'
-import Mustache from "mustache"
 import {decryptVariables, encrypt} from "./encryption";
 import {makePDFString} from "./makePDF";
 import {flatPick} from "./utils";
@@ -40,15 +39,13 @@ const handler: ZBWorkerTaskHandler = async (
 
 
   const jobVariables = decryptVariables(job)
-  const generatedPDF: string = await makePDFString(jobVariables)
+  const generatedPDF: string = await makePDFString(jobVariables, job.customHeaders.pdfType)
 
   debug(`Job is complete, adding the data PDF to it (a b64 encrypted string`);
 
   const updateBrokerVariables = {
     PDF: encrypt(generatedPDF),
   }
-
-  const renderedPdfType = Mustache.render(job.customHeaders.pdfType, jobVariables)
 
   return job.complete(updateBrokerVariables)
 }
