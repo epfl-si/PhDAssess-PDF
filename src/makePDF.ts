@@ -19,81 +19,67 @@ import { IInputVariables } from "zeebe-node"
 
 const fonts = {
   Helvetica: {
-    normal: "Helvetica",
-    bold: "Helvetica-Bold",
-    italics: "Helvetica-Oblique",
+    normal: 'Helvetica',
+    bold: 'Helvetica-Bold',
+    italics: 'Helvetica-Oblique',
     //boldItalics: 'Helvetica-BoldOblique',
   },
 };
 
-function getDocumentDefinition(
-  phdVariables: IInputVariables,
-  pdfType: String | undefined
-): TDocumentDefinitions {
+function getDocumentDefinition(phdVariables: IInputVariables, pdfType: String | undefined): TDocumentDefinitions {
+  let content
+
   if (pdfType && pdfType === "collaborativeReview") {
-    return {
-      info: getMetaData(phdVariables),
-      content: [
-        getHeader(),
-        getProvisional(),
-        getMain(phdVariables),
-        getSectionA(phdVariables),
-        getSectionB(phdVariables),
-        getSectionC(phdVariables),
-        getSectionCCommentsWithoutCommon(phdVariables),
-      ],
-      styles,
-      defaultStyle: defaultStyle,
-    };
+    content = [
+      getHeader(),
+      getProvisional(),
+      getMain(phdVariables),
+      getSectionA(phdVariables),
+      getSectionB(phdVariables),
+      getSectionC(phdVariables),
+      getSectionCCommentsWithoutCommon(phdVariables),
+    ]
   } else if (pdfType && pdfType === "unsatisfactory") {
-    return {
-      info: getMetaData(phdVariables),
-      content: [
-        getHeader(),
-        getMain(phdVariables),
-        getSectionA(phdVariables),
-        getSectionB(phdVariables),
-        getSectionC(phdVariables),
-        getSectionCCommentsAll(phdVariables),
-        getSectionD(phdVariables),
-      ],
-      styles,
-      defaultStyle: defaultStyle,
-    };
+    content = [
+      getHeader(),
+      getMain(phdVariables),
+      getSectionA(phdVariables),
+      getSectionB(phdVariables),
+      getSectionC(phdVariables),
+      getSectionCCommentsAll(phdVariables),
+      getSectionD(phdVariables),
+    ]
   } else if (pdfType && pdfType === "notAgree") {
-    return {
-      info: getMetaData(phdVariables),
-      content: [
-        getHeader(),
-        getMain(phdVariables),
-        getSectionA(phdVariables),
-        getSectionB(phdVariables),
-        getSectionC(phdVariables),
-        getSectionCCommentsAll(phdVariables),
-        getSectionD(phdVariables),
-        getSectionDAgree(phdVariables),
-      ],
-      styles,
-      defaultStyle: defaultStyle,
-    };
+    content = [
+      getHeader(),
+      getMain(phdVariables),
+      getSectionA(phdVariables),
+      getSectionB(phdVariables),
+      getSectionC(phdVariables),
+      getSectionCCommentsAll(phdVariables),
+      getSectionD(phdVariables),
+      getSectionDAgree(phdVariables),
+    ]
   } else {
-    return {
-      info: getMetaData(phdVariables),
-      content: [
-        getHeader(),
-        getMain(phdVariables),
-        getSectionA(phdVariables),
-        getSectionB(phdVariables),
-        getSectionC(phdVariables),
-        getSectionCCommentsAll(phdVariables),
-        getSectionD(phdVariables),
-        getSectionDAgree(phdVariables),
-        getFooter(phdVariables),
-      ],
-      styles,
-      defaultStyle: defaultStyle,
-    };
+    content = [
+      getHeader(),
+      getMain(phdVariables),
+      getSectionA(phdVariables),
+      getSectionB(phdVariables),
+      getSectionC(phdVariables),
+      getSectionCCommentsAll(phdVariables),
+      getSectionD(phdVariables),
+      getSectionDAgree(phdVariables),
+      getFooter(phdVariables),
+    ]
   }
+
+  return {
+    info: getMetaData(phdVariables),
+    content: content,
+    styles,
+    defaultStyle: defaultStyle,
+  };
 }
 
 /*
@@ -108,7 +94,7 @@ export function makePDFFile(phdVariables: IInputVariables, pdfType: String | und
     options
   )
 
-  pdfDoc.pipe(fs.createWriteStream("out/makePDF.pdf"))
+  pdfDoc.pipe(fs.createWriteStream('out/makePDF.pdf'))
   pdfDoc.end()
 }
 
@@ -129,5 +115,5 @@ export async function makePDFString(
   pdfDoc.end();
 
   const bufferedPdf = await getStream.buffer(pdfDoc)
-  return Buffer.from(bufferedPdf).toString("base64")
+  return Buffer.from(bufferedPdf).toString('base64')
 }

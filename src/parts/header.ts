@@ -1,7 +1,6 @@
 import {Content} from "pdfmake/interfaces"
 
 
-
 export default function getHeader() {
     const logo: Content = [{image : 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wCEAAQEBAQ \
     EBAUFBQUHBwYHBwoJCAgJCg8KCwoLCg8WDhAODhAOFhQYExITGBQjHBgYHCMpIiAiKTEsLDE+Oz5 \

@@ -2,7 +2,6 @@ import {Content} from "pdfmake/interfaces"
 import {IInputVariables} from "zeebe-node"
 
 
-
 export default function getMain(phdVariables: IInputVariables) {
 
     const doctoralProgram: Content = { text:[{text: 'Doctoral program : ',  bold: true}, phdVariables.doctoralProgramName ]}
