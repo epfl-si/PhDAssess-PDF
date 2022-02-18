@@ -40,7 +40,7 @@ const handler: ZBWorkerTaskHandler = async (
 
 
   const jobVariables = decryptVariables(job)
-  const generatedPDF: string = await makePDFString(jobVariables)
+  const generatedPDF: string = await makePDFString(jobVariables, job.customHeaders.pdfType)
 
   debug(`Job is complete, adding the data PDF to it (a b64 encrypted string`);
 
