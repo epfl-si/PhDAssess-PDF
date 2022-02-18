@@ -1,22 +1,21 @@
-import PdfPrinter from "pdfmake";
-import fs from "fs";
-import { BufferOptions, TDocumentDefinitions } from "pdfmake/interfaces";
-import getStream from "get-stream";
-
-import { defaultStyle, styles } from "./styles";
-import getMetaData from "./parts/meta";
-import getHeader from "./parts/header";
-import getProvisional from "./parts/provisional";
-import getMain from "./parts/main";
-import getSectionA from "./parts/sectionA";
-import getSectionB from "./parts/sectionB";
-import getSectionC from "./parts/sectionC";
-import getSectionCCommentsAll from "./parts/sectionCCommentsAll";
-import getSectionCCommentsWithoutCommon from "./parts/sectionCCommentsWithoutCommon";
-import getSectionD from "./parts/sectionD";
-import getSectionDAgree from "./parts/sectionDAgree";
-import getFooter from "./parts/footer";
-import { IInputVariables } from "zeebe-node";
+import PdfPrinter from "pdfmake"
+import fs from "fs"
+import { BufferOptions, TDocumentDefinitions } from "pdfmake/interfaces"
+import getStream from "get-stream"
+import { defaultStyle, styles } from "./styles"
+import getMetaData from "./parts/meta"
+import getHeader from "./parts/header"
+import getProvisional from "./parts/provisional"
+import getMain from "./parts/main"
+import getSectionA from "./parts/sectionA"
+import getSectionB from "./parts/sectionB"
+import getSectionC from "./parts/sectionC"
+import getSectionCCommentsAll from "./parts/sectionCCommentsAll"
+import getSectionCCommentsWithoutCommon from "./parts/sectionCCommentsWithoutCommon"
+import getSectionD from "./parts/sectionD"
+import getSectionDAgree from "./parts/sectionDAgree"
+import getFooter from "./parts/footer"
+import { IInputVariables } from "zeebe-node"
 
 const fonts = {
   Helvetica: {
