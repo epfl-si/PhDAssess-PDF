@@ -1,8 +1,9 @@
 import debug_ from "debug";
+import {Job} from "zeebe-node"
 
 const CryptoJS = require("crypto-js");
 const debug = debug_('encryption')
-import {Job} from "zeebe-node"
+
 
 export function encrypt(message: string | [], passphrase: string | undefined = process.env.PHDASSESS_ENCRYPTION_KEY): string {
   if (passphrase === undefined) {

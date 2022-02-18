@@ -4,9 +4,10 @@ import debug_ from 'debug'
 import {decryptVariables, encrypt} from "./encryption";
 import {makePDFString} from "./makePDF";
 import {flatPick} from "./utils";
-const version = require('./version.js');
 
+const version = require('./version.js');
 const debug = debug_('phd-assess/zeebeWorker')
+
 
 export const zBClient = new ZBClient({
   pollInterval: Duration.seconds.of(10),

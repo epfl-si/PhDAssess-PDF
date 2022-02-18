@@ -1,5 +1,6 @@
 import {Style, StyleDictionary} from "pdfmake/interfaces";
 
+
 export const defaultStyle: Style = {
     font: 'Helvetica',
     fontSize: 11,

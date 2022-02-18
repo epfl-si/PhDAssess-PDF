@@ -3,7 +3,6 @@ import {IInputVariables} from "zeebe-node"
 import {seperator} from "./utils"
 
 
-
 export default function getSectionA(phdVariables: IInputVariables) {
 
     const section: Content = [{text: 'Basic information', style: 'header'}]
