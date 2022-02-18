@@ -20,7 +20,7 @@
     set -e -x
     oc whoami -t | docker login {{ openshift_image_registry }} -u unused --password-stdin
     docker image tag {{ phd_assess_pdf_servicename }} {{ phd_assess_pdf_remote_image_tag }}
-    docker push {{ phd_assess_ged_remote_image_tag }}
+    docker push {{ phd_assess_pdf_remote_image_tag }}
   register: output_push_image
   delegate_to: localhost
 - debug: var=output_push_image.stdout_lines
