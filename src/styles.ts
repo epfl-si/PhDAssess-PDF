@@ -2,7 +2,7 @@ import {Style, StyleDictionary} from "pdfmake/interfaces";
 
 
 export const defaultStyle: Style = {
-    font: 'Helvetica',
+    font: 'Roboto',
     fontSize: 11,
     lineHeight: 1.4,
 }
