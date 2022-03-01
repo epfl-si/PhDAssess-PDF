@@ -17,14 +17,15 @@ import getSectionDAgree from "./parts/sectionDAgree"
 import getFooter from "./parts/footer"
 import getDate from "./parts/date"
 import { IInputVariables } from "zeebe-node"
+import path from 'path'
 
 const fonts = {
-  Helvetica: {
-    normal: 'Helvetica',
-    bold: 'Helvetica-Bold',
-    italics: 'Helvetica-Oblique',
-    //boldItalics: 'Helvetica-BoldOblique',
-  },
+  Roboto: {
+    normal: path.join(__dirname, 'fonts/Roboto-Regular.ttf'),
+    bold: path.join(__dirname, 'fonts/Roboto-Medium.ttf'),
+    italics: path.join(__dirname, 'fonts/Roboto-Italic.ttf'),
+    bolditalics: path.join(__dirname, 'fonts/Roboto-MediumItalic.ttf')
+  }
 };
 
 function getDocumentDefinition(phdVariables: IInputVariables, pdfType: String | undefined): TDocumentDefinitions {

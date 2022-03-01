@@ -2,21 +2,21 @@ import {Style, StyleDictionary} from "pdfmake/interfaces";
 
 
 export const defaultStyle: Style = {
-    font: 'Helvetica',
-    fontSize: 11,
-    lineHeight: 1.4,
+    font: 'Roboto',
+    fontSize: 13,
+    lineHeight: 1.2,
 }
 
 export const styles: StyleDictionary = {
     title: {
-        fontSize: 20,
+        fontSize: 24,
         bold: true,
         lineHeight: 3,
     },
     header: {
-        fontSize: 16,
+        fontSize: 19,
         bold: true,
-        lineHeight: 2.5,
+        lineHeight: 1.4,
     },
     subheader: {
         fontSize: 14,
