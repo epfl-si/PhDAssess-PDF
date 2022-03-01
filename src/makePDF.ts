@@ -15,6 +15,7 @@ import getSectionCCommentsWithoutCommon from "./parts/sectionCCommentsWithoutCom
 import getSectionD from "./parts/sectionD"
 import getSectionDAgree from "./parts/sectionDAgree"
 import getFooter from "./parts/footer"
+import getDate from "./parts/date"
 import { IInputVariables } from "zeebe-node"
 
 const fonts = {
@@ -38,20 +39,24 @@ function getDocumentDefinition(phdVariables: IInputVariables, pdfType: String | 
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsWithoutCommon(phdVariables),
+      getDate(),
     ]
   } else if (pdfType && pdfType === "unsatisfactory") {
     content = [
       getHeader(),
+      getProvisional(),
       getMain(phdVariables),
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables),
       getSectionD(phdVariables),
+      getDate(),
     ]
   } else if (pdfType && pdfType === "notAgree") {
     content = [
       getHeader(),
+      getProvisional(),
       getMain(phdVariables),
       getSectionA(phdVariables),
       getSectionB(phdVariables),
@@ -59,6 +64,7 @@ function getDocumentDefinition(phdVariables: IInputVariables, pdfType: String | 
       getSectionCCommentsAll(phdVariables),
       getSectionD(phdVariables),
       getSectionDAgree(phdVariables),
+      getDate(),
     ]
   } else {
     content = [
@@ -71,6 +77,7 @@ function getDocumentDefinition(phdVariables: IInputVariables, pdfType: String | 
       getSectionD(phdVariables),
       getSectionDAgree(phdVariables),
       getFooter(phdVariables),
+      getDate(),
     ]
   }
 
