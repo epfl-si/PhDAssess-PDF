@@ -5,7 +5,7 @@
   "main": "src/makePDF.js",
   "scripts": {
     "start": "genversion src/version.js && ts-node -r dotenv/config ./src/index.ts",
-    "build": "tsc -p . && genversion build/version.js",
+    "build": "tsc -p . && genversion build/version.js && cp -r ./src/fonts ./build",
     "build-docker": "npm run build && docker build --tag phd-assess-pdf .",
     "generate-local-pdf": "ts-node -r dotenv/config scripts/generateLocalPDF.ts",
     "test": "mocha -r ts-node/register tests/**/*.test.ts"
