@@ -17,7 +17,7 @@ export default function getSectionB(phdVariables: IInputVariables) {
         const haveTheObjectivesChangedInThePastYearIfSoWhyAndHow: Content = { text: [{text: 'Have the objectives changed in the past year? If so, why and how?', bold: true}, {text : '\n'}, {text: phdVariables.haveTheObjectivesChangedInThePastYearIfSoWhyAndHow },seperator]}
         const researchObjectivesForTheNextYear: Content = { text: [{text: 'Research objectives for the next year ', bold: true}, {text : '\n'}, {text: phdVariables.researchObjectivesForTheNextYear },seperator]}
         const timelineOfThePlannedWorkForTheNextYear: Content = { text: [{text: 'Timeline of the planned work for the next year', bold: true}, {text : '\n'}, {text: phdVariables.timelineOfThePlannedWorkForTheNextYear },seperator]}
-        const scientificOutput: Content = { text: [{text: 'Scientific output', bold: true}, {text : '\n'}, {text: phdVariables.educationalActivities },seperator]}
+        const scientificOutput: Content = { text: [{text: 'Scientific output', bold: true}, {text : '\n'}, {text: phdVariables.scientificOutput },seperator]}
         const educationalActivities: Content = { text: [{text: 'Educational activities', bold: true}, {text : '\n'}, {text: phdVariables.educationalActivities },seperator]}
 
         return [
