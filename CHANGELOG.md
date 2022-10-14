@@ -1,5 +1,11 @@
 # CHANGELOG
 
+*1.3.1* (2022-10-14)
+- Fix not having the thesis director name in the meta
+
+*1.3.0* (2022-09-09)
+- Add metadata fields
+
 *1.2.1* (2022-03-10)
 - Fix the GRPC limit on messages
 

@@ -96,7 +96,7 @@ export default function getMetaData(phdVariables: IInputVariables) : TDocumentMe
         phdStudentName : phdVariables.phdStudentName,
         phdStudentSciper : phdVariables.phdStudentSciper,
         tentativeThesisTitle : phdVariables.tentativeThesisTitle,
-        thesisDirectorName : phdVariables.phdVariables,
+        thesisDirectorName : phdVariables.thesisDirectorName,
         thesisCoDirectorName : phdVariables.thesisCoDirectorName,
         programDirectorName : phdVariables.programDirectorName,
         dateOfCandidacyExam : phdVariables.dateOfCandidacyExam,
