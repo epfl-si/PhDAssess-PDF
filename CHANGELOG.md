@@ -1,5 +1,9 @@
 # CHANGELOG
 
+*1.3.2* (2022-10-28)
+- Update doc
+- Update Typescript to 4.8
+
 *1.3.1* (2022-10-14)
 - Fix not having the thesis director name in the meta
 
