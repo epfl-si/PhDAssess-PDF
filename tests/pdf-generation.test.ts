@@ -25,7 +25,7 @@ describe('PDF as string generation result', () => {
     // see samples https://github.com/mozilla/pdf.js/blob/master/examples/node/getinfo.js
     console.log("Loading the PDF from the b64 string...")
 
-    const loadingTask = pdfjsLib.getDocument({ data: atob(pdfGenerated) })
+    const loadingTask = pdfjsLib.getDocument({ data: Buffer.from(pdfGenerated, 'base64') })
     const doc = await loadingTask.promise
 
     expect(doc).to.not.be.empty
