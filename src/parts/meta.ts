@@ -1,6 +1,6 @@
 import {TDocumentInformation as TDocumentInformationPDFMake} from "pdfmake/interfaces";
 
-import {PhDAssessVariables} from "phd-assess-meta/types/variables";
+import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 
 
 export interface TDocumentMetaInformation extends TDocumentInformationPDFMake, Partial<PhDAssessVariables> {

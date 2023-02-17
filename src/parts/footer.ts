@@ -1,6 +1,6 @@
 import {Content} from "pdfmake/interfaces"
 
-import {PhDAssessVariables} from "phd-assess-meta/types/variables";
+import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import {seperator} from "./utils"
 
 

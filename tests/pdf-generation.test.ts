@@ -8,7 +8,7 @@ const expect = chai.expect
 import {PDFInfo} from "pdfjs-dist/index";
 const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js")
 
-import {PhDAssessVariables} from "phd-assess-meta/types/variables";
+import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import {makePDFString} from "../src/makePDF"
 import sampleData from "../src/sample.json"
 

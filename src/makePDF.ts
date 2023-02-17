@@ -16,7 +16,7 @@ import getSectionD from "./parts/sectionD"
 import getSectionDAgree from "./parts/sectionDAgree"
 import getFooter from "./parts/footer"
 import getDate from "./parts/date"
-import {PhDAssessVariables} from "phd-assess-meta/types/variables";
+import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import path from 'path'
 
 const fonts = {
