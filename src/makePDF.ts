@@ -16,7 +16,7 @@ import getSectionD from "./parts/sectionD"
 import getSectionDAgree from "./parts/sectionDAgree"
 import getFooter from "./parts/footer"
 import getDate from "./parts/date"
-import { IInputVariables } from "zeebe-node"
+import {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import path from 'path'
 
 const fonts = {
@@ -28,7 +28,7 @@ const fonts = {
   }
 };
 
-function getDocumentDefinition(phdVariables: IInputVariables, pdfType: String | undefined): TDocumentDefinitions {
+function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: String | undefined): TDocumentDefinitions {
   let content
 
   if (pdfType && pdfType === "collaborativeReview") {
@@ -93,7 +93,7 @@ function getDocumentDefinition(phdVariables: IInputVariables, pdfType: String | 
 /*
  * Write the pdf into 'out/makePDF.pdf'
  */
-export function makePDFFile(phdVariables: IInputVariables, pdfType: String | undefined) {
+export function makePDFFile(phdVariables: PhDAssessVariables, pdfType: String | undefined) {
   const printer = new PdfPrinter(fonts)
 
   const options: BufferOptions = {}
@@ -110,8 +110,8 @@ export function makePDFFile(phdVariables: IInputVariables, pdfType: String | und
  * Return the pdf as a base64 string
  */
 export async function makePDFString(
-  phdVariables: IInputVariables,
-  pdfType: String | undefined
+  phdVariables: PhDAssessVariables,
+  pdfType?: string
 ): Promise<string> {
   const printer = new PdfPrinter(fonts)
 
