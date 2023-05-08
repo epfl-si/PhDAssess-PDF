@@ -14,7 +14,6 @@ export default function getSectionD(phdVariables: IInputVariables) {
 
     return [
         section,
-        intro,
         intro2,
         intro3,
         generalAppraisalOfTheProgress,

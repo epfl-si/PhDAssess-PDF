@@ -18,6 +18,5 @@ export default function getSectionC(phdVariables: IInputVariables) {
                            { text:'Please use the comments box to briefly assess the progress and further elaborate any specific issues. '},seperator]}
     return [
         section,
-        intro,
     ]
 }

@@ -5,7 +5,7 @@ import {seperator} from "./utils"
 
 export default function getSectionCCommentsAll(phdVariables: IInputVariables) {
 
-    const comment1: Content = [{text: 'Student’s engagement in the project'  , bold: true}]
+    const comment1: Content = [{text: 'Doctoral candidate’s engagement in the thesis'  , bold: true}]
     const phdComment1: Content = { text: [{text : 'Doctoral student comment:\n', bold: true}, {text: phdVariables.phdComment1} ]}
     const thesisDirectorComment1: Content = { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment1} ]}
     const thesisCoDirectorComment1: Content = phdVariables.thesisCoDirectorName ?
@@ -23,13 +23,13 @@ export default function getSectionCCommentsAll(phdVariables: IInputVariables) {
     const thesisCoDirectorComment3: Content = phdVariables.thesisCoDirectorName ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment3} ]} : ""
     const commonComment3: Content = { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment3},seperator ]}
-    const comment4: Content = [{text: 'Student’s scientific and career development'  , bold: true}]
+    const comment4: Content = [{text: 'Doctoral candidate’s scientific and career development'  , bold: true}]
     const phdComment4: Content = { text: [{text : 'Doctoral student comment:\n', bold: true}, {text: phdVariables.phdComment4} ]}
     const thesisDirectorComment4: Content = { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment4} ]}
     const thesisCoDirectorComment4: Content = phdVariables.thesisCoDirectorName ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment4} ]} : ""
     const commonComment4: Content = { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment4},seperator ]}
-    const comment5: Content = [{text: 'Laboratory situation'  , bold: true}]
+    const comment5: Content = [{text: 'Laboratory environment'  , bold: true}]
     const phdComment5: Content = { text: [{text : 'Doctoral student comment:\n', bold: true}, {text: phdVariables.phdComment5} ]}
     const thesisDirectorComment5: Content = { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment5} ]}
     const thesisCoDirectorComment5: Content = phdVariables.thesisCoDirectorName ?
