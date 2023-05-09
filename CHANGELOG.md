@@ -1,5 +1,13 @@
 # CHANGELOG
 
+*1.5.0* (2023-05-09)
+- Update libs
+- Improve tests
+
+*1.4.0* (2023-02-17)
+- Use PhDAssess-meta for types
+- Fix tests
+
 *1.3.2* (2022-10-28)
 - Update doc
 - Update Typescript to 4.8

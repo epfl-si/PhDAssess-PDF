@@ -16,11 +16,9 @@ export const zBClient = new ZBClient({
 const taskType = process.env.ZEEBE_TASK_TYPE ? process.env.ZEEBE_TASK_TYPE : ''
 
 const handler: ZBWorkerTaskHandler = async (
-  job,
-  _,
-  worker
+  job
   ) => {
-  worker.debug(`Task variables ${job.variables}`)
+  debug(`Task variables ${job.variables}`)
   debug(`Job "${taskType}" started`);
 
   console.log("Received and starting task", {
@@ -28,8 +26,8 @@ const handler: ZBWorkerTaskHandler = async (
     job: flatPick(job,
       [
         'key',
-        'workflowInstanceKey',
-        'workflowDefinitionVersion',
+        'processInstanceKey',
+        'processDefinitionVersion',
         'elementId',
         'worker',
         'variables.created_at',
@@ -37,7 +35,6 @@ const handler: ZBWorkerTaskHandler = async (
       ]
     )
   })
-
 
   const jobVariables = decryptVariables(job)
   const generatedPDF: string = await makePDFString(jobVariables, job.customHeaders.pdfType)

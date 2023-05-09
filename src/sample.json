@@ -12,40 +12,6 @@
   "creditsNeeded" :  "30",
   "totalCreditsObtained" : "5",
   "totalCreditsPlanned" : "3",
-  "listBelowObtainedCredits": [
-    {
-      "yearObtained": "2020",
-      "semestreObtained": "spring",
-      "courseNumberNameObtained": "45",
-      "creditsObtained": "2"
-    },
-    {
-      "yearObtained": "2020",
-      "semestreObtained": "spring",
-      "courseNumberNameObtained": "45",
-      "creditsObtained": "2"
-    },
-    {
-      "yearObtained": "2020",
-      "semestreObtained": "spring",
-      "courseNumberNameObtained": "45",
-      "creditsObtained": "1"
-    }
-  ],
-  "listBelowPlannedCourses": [
-    {
-      "yearPlanned": "2021",
-      "semestrePlanned": "fall",
-      "courseNumberNamePlanned": "111",
-      "creditsPlanned": "2"
-    },
-    {
-      "yearPlanned": "2022",
-      "semestrePlanned": "fall",
-      "courseNumberNamePlanned": "145",
-      "creditsPlanned": "1"
-    }
-  ],
   "goalsOfTheThesis": "Goals of the thesis Α α, Β β, Γ γ, Δ δ, Ε ε, Ζ ζ, Η η, Θ θ, Ι ι",
   "researchProgressDuringThePastYear": "researchProgressDuringThePastYear",
   "haveTheObjectivesChangedInThePastYearIfSoWhyAndHow": "haveTheObjectivesChangedInThePastYearIfSoWhyAndHow",

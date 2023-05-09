@@ -5,34 +5,44 @@ chai.use(require('chai-fs'))
 const assert = chai.assert
 const expect = chai.expect
 
-import {PDFInfo} from "pdfjs-dist/index";
 const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js")
 
 import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
-import {makePDFString} from "../src/makePDF"
+import {makePDFFile, makePDFString} from "../src/makePDF"
+
+// @ts-ignore
 import sampleData from "../src/sample.json"
+// @ts-ignore
+import samplePdfType from "../src/samplePdfType.json"
+import {PDFDocumentProxy} from "pdfjs-dist";
 
 
-describe('PDF as string generation result', () => {
-  it('should generate the PDF', async () => {
-    // 1. ARRANGE
+describe('PDF generation tests', () => {
+  let pdfGenerated: string | undefined
+  let doc: PDFDocumentProxy | undefined
 
-    // 2. ACT
-    const pdfGenerated = await makePDFString(sampleData as unknown as PhDAssessVariables)
+  before('should generate the PDF with sample data', async () => {
+    pdfGenerated = await makePDFString(sampleData as unknown as PhDAssessVariables)
 
-    // 3. ASSERT
+    assert.isString(pdfGenerated)
+  })
 
+  it('should be able to open the PDF in memory', async () => {
     // see samples https://github.com/mozilla/pdf.js/blob/master/examples/node/getinfo.js
-    console.log("Loading the PDF from the b64 string...")
+    const buffer = Buffer.from(pdfGenerated!, 'base64')
+    const pdfGeneratedUint8 = new Uint8Array(buffer)
 
-    const loadingTask = pdfjsLib.getDocument({ data: Buffer.from(pdfGenerated, 'base64') })
-    const doc = await loadingTask.promise
+    const loadingTask = pdfjsLib.getDocument({ data: pdfGeneratedUint8 })
+    doc = await loadingTask.promise
+  })
 
+  it('should have some right content inside the PDF in memory', async () => {
+    doc = doc!
     expect(doc).to.not.be.empty
     expect(doc.numPages).to.be.greaterThan(0)
 
     const data = await doc.getMetadata()
-    const info = data.info as PDFInfo
+    const info:any = data.info
     expect(info.Subject).to.equal("Annual report of 2nd year")
 
     // METADATA
@@ -53,7 +63,13 @@ describe('PDF as string generation result', () => {
 
     expect(strings.join("")).to.have.string("Name of candidate")
     expect(strings.join("")).to.have.string("Date of candidacy exam")
+  })
 
-    console.log("looks all fine! You can find the resulted pdf into ./out")
+  it('should be able to generate the PDF as file from sample data', async () => {
+    makePDFFile(sampleData as unknown as PhDAssessVariables, samplePdfType)
+  })
+
+  after(async () => {
+    console.log("\nlooks all fine! You can find the resulted pdf into ./out")
   })
 })

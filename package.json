@@ -1,6 +1,6 @@
 {
   "name": "phd-assess-pdf",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "",
   "main": "src/makePDF.js",
   "scripts": {
@@ -15,34 +15,33 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "app-root-path": "^3.0.0",
-    "console-log-json": "^2.8.0",
-    "crypto-js": "^4.0.0",
+    "app-root-path": "^3.1.0",
+    "console-log-json": "^2.11.2",
+    "crypto-js": "^4.1.1",
     "debug": "^4.3.2",
-    "dotenv": "^10.0.0",
-    "genversion": "^3.0.2",
+    "dotenv": "^16.0.3",
+    "genversion": "^3.1.1",
     "get-stream": "^6.0.1",
     "lodash": "^4.17.21",
-    "patch-package": "^6.4.7",
-    "pdfmake": "^0.2.0",
-    "zeebe-node": "^2.4.0"
+    "patch-package": "^7.0.0",
+    "pdfmake": "^0.2.7",
+    "zeebe-node": "^8.2.1"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
-    "@types/chai": "^4.2.21",
+    "@types/chai": "^4.3.5",
     "@types/chai-fs": "^2.0.2",
-    "@types/crypto-js": "^4.0.1",
-    "@types/debug": "^4.1.5",
-    "@types/lodash": "^4.14.174",
-    "@types/mocha": "^9.0.0",
-    "@types/pdfjs-dist": "^2.7.4",
-    "@types/pdfmake": "^0.1.18",
-    "chai": "^4.3.4",
+    "@types/crypto-js": "^4.1.1",
+    "@types/debug": "^4.1.7",
+    "@types/lodash": "^4.14.194",
+    "@types/mocha": "^10.0.1",
+    "@types/pdfmake": "^0.2.2",
+    "chai": "^4.3.7",
     "chai-fs": "^2.0.0",
-    "mocha": "^9.0.3",
-    "pdfjs-dist": "^2.9.359",
+    "mocha": "10.1.0",
+    "pdfjs-dist": "^3.6.172",
     "phd-assess-meta": "github:epfl-si/PhDAssess-meta",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
+    "typescript": "^5.0.4"
   }
 }
