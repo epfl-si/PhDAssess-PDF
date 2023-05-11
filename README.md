@@ -2,7 +2,6 @@
 Microservice in Node to generate PDF for the PhD assess process
 
 ## usage
-- `nvm install 16`
 - `npm i`
 
 ### Test a PDF generation
