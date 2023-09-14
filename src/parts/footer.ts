@@ -13,8 +13,8 @@ export default function getFooter(phdVariables: PhDAssessVariables) {
             {text: 'Mentor and doctoral candidate have met ',  bold: true},
             {text : '\nValidated by the mentor on '},
             {text: phdVariables.mentorDate ?? 'N/A'},
-            {text : '\nValidated by the doctoral student on '},
-            {text: phdVariables.phdDate ?? 'N/A'},
+            {text : '\nValidated by the doctoral candidate on '},
+            {text: phdVariables.phdDateOfReview ?? 'N/A'},
             seperator
         ]
     }
