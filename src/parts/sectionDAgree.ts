@@ -5,15 +5,17 @@ import {seperator} from "./utils"
 
 export default function getSectionDAgree(phdVariables: IInputVariables) {
 
+     
     if (phdVariables.agreeThesisCoDirector == "Thesis co-director agrees") {
         var agreeThesisCoDirectorOn = " agreed on the report on "
     }
     else {
         var agreeThesisCoDirectorOn = " did not agree on the report on "
     }
-    const agreeThesisCoDirector: Content = phdVariables.thesisCoDirectorName ?
+
+    const agreeThesisCoDirector: Content = phdVariables.thesisCoDirectorDateOfReview ?
         { text:[{text: 'Thesis co-director',  bold: true}, {text : agreeThesisCoDirectorOn}, {text: phdVariables.thesisCoDirectorDateOfReview} ]} : ""
-    const thesisCoDirectorComment: Content = phdVariables.thesisCoDirectorName ?
+    const thesisCoDirectorComment: Content = phdVariables.thesisCoDirectorComment ?
         { text: [{text : 'Comment: '}, {text: phdVariables.thesisCoDirectorComment},seperator ]} : ""
     if (phdVariables.agreeThesisDirector == "Thesis director agrees") {
           var agreeThesisDirectorOn = " agreed on the report on "
@@ -21,8 +23,11 @@ export default function getSectionDAgree(phdVariables: IInputVariables) {
     else {
           var agreeThesisDirectorOn = " did not agree on the report on "
         }
-    const agreeThesisDirector: Content = { text:[{text: 'Thesis director ',  bold: true}, {text : agreeThesisDirectorOn}, {text: phdVariables.thesisDirectorDateOfReview} ]}
-    const thesisDirectorComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.thesisDirectorComment},seperator ]}
+    
+    const agreeThesisDirector: Content = phdVariables.thesisDirectorDateOfReview ?
+        { text:[{text: 'Thesis director ',  bold: true}, {text : agreeThesisDirectorOn}, {text: phdVariables.thesisDirectorDateOfReview} ]} : ""
+    const thesisDirectorComment: Content = phdVariables.thesisDirectorComment ?
+        { text: [{text : 'Comment: '}, {text: phdVariables.thesisDirectorComment},seperator ]} : ""                                                         
     if (phdVariables.agreePhd == "Doctoral candidate agrees") {
         var agreeaPhdOn = " agreed on the report on "
     }

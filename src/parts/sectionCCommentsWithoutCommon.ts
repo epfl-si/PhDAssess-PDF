@@ -30,11 +30,16 @@ export default function getSectionCCommentsWithoutCommon(phdVariables: IInputVar
     const thesisDirectorComment5: Content = { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment5} ]}
     const thesisCoDirectorComment5: Content = phdVariables.thesisCoDirectorName ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment5} ]} : ""
-    const comment6: Content = [{text: '\nAny other specific points'  , bold: true}]
-    const phdComment6: Content = { text: [{text : 'Doctoral candidate comment:\n', bold: true}, {text: phdVariables.phdComment6} ]}
-    const thesisDirectorComment6: Content = { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment6} ]}
-    const thesisCoDirectorComment6: Content = phdVariables.thesisCoDirectorName ?
+        const comment6: Content =  (phdVariables.phdComment6 || phdVariables.thesisDirectorComment6 || phdVariables.commonComment6 || phdVariables.commonComment6) ?
+        [{text: 'Any other specific points'  , bold: true}] :""
+    const phdComment6: Content = phdVariables.phdComment6 ?
+        { text: [{text : 'Doctoral candidate comment:\n', bold: true}, {text: phdVariables.phdComment6} ]} :""
+    const thesisDirectorComment6: Content = phdVariables.thesisDirectorComment6 ?
+        { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment6} ]} :""
+    const thesisCoDirectorComment6: Content = (phdVariables.thesisCoDirectorName && phdVariables.thesisCoDirectorComment6 ) ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment6} ]} : ""
+    const commonComment6: Content = phdVariables.commonComment6 ?
+        { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment6},seperator ]} : ""
     return [
         comment1,
         phdComment1,
