@@ -9,17 +9,17 @@ export const defaultStyle: Style = {
 
 export const styles: StyleDictionary = {
     title: {
-        fontSize: 24,
+        fontSize: 20,
         bold: true,
         lineHeight: 3,
     },
     header: {
-        fontSize: 19,
+        fontSize: 18,
         bold: true,
         lineHeight: 1.4,
     },
     subheader: {
-        fontSize: 14,
+        fontSize: 12,
         bold: true,
     },
     table: {

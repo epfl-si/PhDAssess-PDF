@@ -11,7 +11,6 @@ export default function getSectionB(phdVariables: IInputVariables) {
     } else
     {
         const section: Content = [{text: 'Research progress', style: 'header'}]
-        const intro: Content = { text:'To be completed first by the doctoral candidate and then discussed with the thesis director (and co-director if applicable) during the Annual Report meeting. Future objectives are meant to provide guidance in the project and should thus be as realistic as possible. Achieved and planned objectives should be discussed and agreed upon by the doctoral candidate and thesis director by approving the Annual Report. \n\n'}
         const goalsOfTheThesis: Content = { text: [{text: 'Overall goals of the thesis?' , bold: true}, {text : '\n'}, {text: phdVariables.goalsOfTheThesis }, seperator ]}
         const researchProgressDuringThePastYear: Content = { text: [{text: 'Research progress during the past year ', bold: true}, {text : '\n'}, {text: phdVariables.researchProgressDuringThePastYear },seperator]}
         const haveTheObjectivesChangedInThePastYearIfSoWhyAndHow: Content = { text: [{text: 'Have the objectives changed in the past year? If so, why and how?', bold: true}, {text : '\n'}, {text: phdVariables.haveTheObjectivesChangedInThePastYearIfSoWhyAndHow },seperator]}

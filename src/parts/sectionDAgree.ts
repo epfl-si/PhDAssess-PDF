@@ -28,7 +28,7 @@ export default function getSectionDAgree(phdVariables: IInputVariables) {
         { text:[{text: 'Thesis director ',  bold: true}, {text : agreeThesisDirectorOn}, {text: phdVariables.thesisDirectorDateOfReview} ]} : ""
     const thesisDirectorComment: Content = phdVariables.thesisDirectorComment ?
         { text: [{text : 'Comment: '}, {text: phdVariables.thesisDirectorComment},seperator ]} : ""                                                         
-    if (phdVariables.agreePhd == "Doctoral candidate agrees") {
+    if (phdVariables.agreePhd == "Doctoral candidate agrees" || phdVariables.agreePhd == "Doctoral student agrees") {
         var agreeaPhdOn = " agreed on the report on "
     }
     else {

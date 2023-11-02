@@ -11,7 +11,6 @@ import getSectionA from "./parts/sectionA"
 import getSectionB from "./parts/sectionB"
 import getSectionC from "./parts/sectionC"
 import getSectionCCommentsAll from "./parts/sectionCCommentsAll"
-import getSectionCCommentsWithoutCommon from "./parts/sectionCCommentsWithoutCommon"
 import getSectionD from "./parts/sectionD"
 import getSectionDAgree from "./parts/sectionDAgree"
 import getFooter from "./parts/footer"
@@ -39,7 +38,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: String
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
-      getSectionCCommentsWithoutCommon(phdVariables),
+      getSectionCCommentsAll(phdVariables, pdfType),
       getDate(),
     ]
   } else if (pdfType && pdfType === "unsatisfactory") {
@@ -50,7 +49,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: String
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
-      getSectionCCommentsAll(phdVariables),
+      getSectionCCommentsAll(phdVariables, pdfType),
       getSectionD(phdVariables),
       getDate(),
     ]
@@ -62,7 +61,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: String
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
-      getSectionCCommentsAll(phdVariables),
+      getSectionCCommentsAll(phdVariables, pdfType),
       getSectionD(phdVariables),
       getSectionDAgree(phdVariables),
       getDate(),
@@ -74,7 +73,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: String
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
-      getSectionCCommentsAll(phdVariables),
+      getSectionCCommentsAll(phdVariables, pdfType),
       getSectionD(phdVariables),
       getSectionDAgree(phdVariables),
       getFooter(phdVariables),
