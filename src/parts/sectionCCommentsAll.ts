@@ -53,9 +53,9 @@ export default function getSectionCCommentsAll(phdVariables: IInputVariables, pd
         { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment5} ]} : ""
     const comment6: Content =  phdVariables.phdComment3  ?
         [{text: '\nAny other specific points'  , bold: true}] :""
-    const phdComment6: Content = phdVariables.phdComment3 ? 
+    const phdComment6: Content = phdVariables.phdComment6 ? 
         { text: [{text : '\nDoctoral candidate comment:\n', bold: true}, {text: phdVariables.phdComment6} ]} : ""
-    const thesisDirectorComment6: Content = phdVariables.phdComment3 ?
+    const thesisDirectorComment6: Content = phdVariables.thesisDirectorComment6 ?
         { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment6} ]} :""
     const thesisCoDirectorComment6: Content = (phdVariables.thesisCoDirectorName && phdVariables.phdComment3 ) ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment6} ]} : ""
