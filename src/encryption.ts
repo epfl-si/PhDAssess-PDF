@@ -34,7 +34,7 @@ export function decryptVariables(job: Job, ignoreKeys: string[] = []): PhDAssess
   const decryptedVariables: any = {}
 
   Object.keys(job.variables).map((key) => {
-    if (key in ignoreKeys) {
+    if (ignoreKeys.includes(key)) {
       decryptedVariables[key] = job.variables[key]
     } else {
       try {
