@@ -15,7 +15,8 @@ export default function getSectionB(phdVariables: IInputVariables) {
         const researchProgressDuringThePastYear: Content = { text: [{text: 'Research progress during the past year ', bold: true}, {text : '\n'}, {text: phdVariables.researchProgressDuringThePastYear },seperator]}
         const haveTheObjectivesChangedInThePastYearIfSoWhyAndHow: Content = { text: [{text: 'Have the objectives changed in the past year? If so, why and how?', bold: true}, {text : '\n'}, {text: phdVariables.haveTheObjectivesChangedInThePastYearIfSoWhyAndHow },seperator]}
         const researchObjectivesForTheNextYear: Content = { text: [{text: 'Research objectives for the next year ', bold: true}, {text : '\n'}, {text: phdVariables.researchObjectivesForTheNextYear },seperator]}
-        const timelineOfThePlannedWorkForTheNextYear: Content = { text: [{text: 'Timeline of the planned work for the next year', bold: true}, {text : '\n'}, {text: phdVariables.timelineOfThePlannedWorkForTheNextYear },seperator]}
+        const timelineOfThePlannedWorkForTheNextYear: Content = phdVariables.timelineOfThePlannedWorkForTheNextYear ?
+          { text: [{text: 'Timeline of the planned work for the next year', bold: true}, {text : '\n'}, {text: phdVariables.timelineOfThePlannedWorkForTheNextYear },seperator]} : ""
 
         const scientificOutput: Content = phdVariables.educationalActivities ?
             { text: [{text: 'Scientific output', bold: true}, {text : '\n'}, {text: phdVariables.scientificOutput },seperator]} : { text: [{text: 'Research objectives for the next year, with approximate timeline (next 365 days)', bold: true}, {text : '\n'}, {text: phdVariables.scientificOutput },seperator]}
