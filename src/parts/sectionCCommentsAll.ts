@@ -20,7 +20,7 @@ export default function getSectionCCommentsAll(phdVariables: IInputVariables, pd
     const thesisCoDirectorComment2: Content = phdVariables.thesisCoDirectorName ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment2} ]} : ""
     const commonComment2: Content = phdVariables.phdComment3 && pdfType != "collaborativeReview" ?
-        { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment2} ]} : " "
+        { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment2} ]} : ""
     const comment3: Content = phdVariables.phdComment3  ?
         [{text: '\nThesis progress'  , bold: true}] : ""
     const phdComment3: Content = phdVariables.phdComment3 ?
@@ -51,13 +51,13 @@ export default function getSectionCCommentsAll(phdVariables: IInputVariables, pd
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment5} ]} : ""
     const commonComment5: Content = phdVariables.phdComment3 && pdfType != "collaborativeReview" ?
         { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment5} ]} : ""
-    const comment6: Content =  phdVariables.phdComment3  ?
+    const comment6: Content =  phdVariables.phdComment6 ||  phdVariables.thesisDirectorComment6 ||  phdVariables.thesisCoDirectorComment6 || phdVariables.commonComment6 ?
         [{text: '\nAny other specific points'  , bold: true}] :""
     const phdComment6: Content = phdVariables.phdComment6 ? 
-        { text: [{text : '\nDoctoral candidate comment:\n', bold: true}, {text: phdVariables.phdComment6} ]} : ""
+        { text: [{text : 'Doctoral candidate comment:\n', bold: true}, {text: phdVariables.phdComment6} ]} : ""
     const thesisDirectorComment6: Content = phdVariables.thesisDirectorComment6 ?
         { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment6} ]} :""
-    const thesisCoDirectorComment6: Content = (phdVariables.thesisCoDirectorName && phdVariables.phdComment3 ) ?
+    const thesisCoDirectorComment6: Content = (phdVariables.thesisCoDirectorName && phdVariables.thesisCoDirectorComment6 ) ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment6} ]} : ""
     const commonComment6: Content = (pdfType != "collaborativeReview" && phdVariables.commonComment6) ?
         { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment6},seperator ]} : "\n\n"
