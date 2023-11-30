@@ -35,7 +35,8 @@ export default function getSectionDAgree(phdVariables: IInputVariables) {
         var agreeaPhdOn = " did not agree on the report on "
     }
     const agreePhd: Content = { text:[{text: 'Doctoral candidate',  bold: true}, {text : agreeaPhdOn}, {text: phdVariables.phdDateOfReview} ]}
-    const phdComment: Content = { text: [{text : 'Comment: '}, {text: phdVariables.phdComment},seperator ]}
+    const phdComment: Content =  phdVariables.phdComment ?
+        { text: [{text : 'Comment: '}, {text: phdVariables.phdComment},seperator ]} : ""
 
 
     return [
