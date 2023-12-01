@@ -46,6 +46,8 @@ const handler: ZBWorkerTaskHandler = async (
 
   const jobVariables = decryptVariables(job, alreadyDecryptedVariables)
 
+  // pdfType can come from two sources. As a custom header if it comes from an isolated activity, or
+  // as a variable if it comes from the notification subprocess
   // @ts-ignore
   const generatedPDF: string = await makePDFString(jobVariables, job.customHeaders.pdfType ?? jobVariables.pdfType)
 
