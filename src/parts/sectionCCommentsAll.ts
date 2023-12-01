@@ -11,16 +11,16 @@ export default function getSectionCCommentsAll(phdVariables: IInputVariables, pd
     const thesisDirectorComment1: Content = { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment1} ]}
     const thesisCoDirectorComment1: Content = phdVariables.thesisCoDirectorName ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment1} ]} :  ""
-    const commonComment1: Content = phdVariables.phdComment3 && pdfType != "collaborativeReview" ?
-        { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment1} ]} : ""
+    const commonComment1: Content = pdfType != "collaborativeReview" ?
+        "" : { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment1} ]}
     const comment2: Content = phdVariables.phdComment3 ?
         [{text: '\nThesis director’s (and co-director if applicable) supervision'  , bold: true}] : [{text: '\nContext of the thesis and support available:'  , bold: true}]
     const phdComment2: Content = { text: [{text : 'Doctoral candidate comment:\n', bold: true}, {text: phdVariables.phdComment2} ]}
     const thesisDirectorComment2: Content = { text: [{text : 'Thesis director comment:\n', bold: true}, {text: phdVariables.thesisDirectorComment2} ]}
     const thesisCoDirectorComment2: Content = phdVariables.thesisCoDirectorName ?
         { text: [{text : 'Thesis co-director comment:\n', bold: true}, {text: phdVariables.thesisCoDirectorComment2} ]} : ""
-    const commonComment2: Content = phdVariables.phdComment3 && pdfType != "collaborativeReview" ?
-        { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment2} ]} : ""
+    const commonComment2: Content =  pdfType != "collaborativeReview" ?
+        "" : { text: [{text : 'Common comment:\n', bold: true}, {text: phdVariables.commonComment2} ]}
     const comment3: Content = phdVariables.phdComment3  ?
         [{text: '\nThesis progress'  , bold: true}] : ""
     const phdComment3: Content = phdVariables.phdComment3 ?
