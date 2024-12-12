@@ -48,11 +48,11 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getHeader(),
       getProvisional(),
       getMain(phdVariables),
+      getSectionD(phdVariables),
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getSectionD(phdVariables),
       getDate(),
     ]
   } else if (pdfType && pdfType === "notAgree") {
@@ -60,24 +60,24 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getHeader(),
       getProvisional(),
       getMain(phdVariables),
+      getSectionD(phdVariables),
+      getSectionDAgree(phdVariables),
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getSectionD(phdVariables),
-      getSectionDAgree(phdVariables),
       getDate(),
     ]
   } else {
     content = [
       getHeader(),
       getMain(phdVariables),
+      getSectionD(phdVariables),
+      getSectionDAgree(phdVariables),
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getSectionD(phdVariables),
-      getSectionDAgree(phdVariables),
       getFooter(phdVariables),
       getDate(),
     ]

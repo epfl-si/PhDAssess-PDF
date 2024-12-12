@@ -10,6 +10,8 @@ export default function getSectionD(phdVariables: IInputVariables) {
 
 
     return [
+        seperator,
+        seperator,
         section,
         generalAppraisalOfTheProgress,
     ]
