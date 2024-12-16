@@ -1,6 +1,6 @@
 {
   "name": "phd-assess-pdf",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "description": "",
   "main": "src/makePDF.js",
   "scripts": {
