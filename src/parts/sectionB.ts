@@ -12,6 +12,7 @@ export default function getSectionB(phdVariables: IInputVariables) {
     {
         const section: Content = [{text: 'Research progress', style: 'header'}]
         const goalsOfTheThesis: Content = { text: [{text: 'Overall goals of the thesis' , bold: true}, {text : '\n'}, {text: phdVariables.goalsOfTheThesis }, seperator ]}
+        const pdfAnnex: Content = phdVariables.pdfAnnexPath ? { text: [{text: 'Please find in appendix a supplement to this report. ', bold: true}, {text : '\n'}, {text : '\n'}]} : ""
         const researchProgressDuringThePastYear: Content = { text: [{text: 'Research progress during the past year ', bold: true}, {text : '\n'}, {text: phdVariables.researchProgressDuringThePastYear },seperator]}
         const haveTheObjectivesChangedInThePastYearIfSoWhyAndHow: Content = { text: [{text: 'Have the objectives changed in the past year? If so, why and how?', bold: true}, {text : '\n'}, {text: phdVariables.haveTheObjectivesChangedInThePastYearIfSoWhyAndHow },seperator]}
         const researchObjectivesForTheNextYear: Content = { text: [{text: 'Research objectives for the next year ', bold: true}, {text : '\n'}, {text: phdVariables.researchObjectivesForTheNextYear },seperator]}
@@ -28,6 +29,7 @@ export default function getSectionB(phdVariables: IInputVariables) {
 
         return [
             section,
+            pdfAnnex,
             goalsOfTheThesis,
             researchProgressDuringThePastYear,
             haveTheObjectivesChangedInThePastYearIfSoWhyAndHow,

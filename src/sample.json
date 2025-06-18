@@ -57,6 +57,7 @@
   "programDirectorComment": "",
   "mentorDate":"2021-07-06",
   "phdDate": "2021-07-07",
+  "pdfAnnexPath": "https://an_ur_to.somewhere_on_the_ged.com/pdf.pdf",
   "activityLogs": [
     {
       "timezone": "Europe/Zurich",

@@ -5,7 +5,7 @@ chai.use(require('chai-fs'))
 const assert = chai.assert
 const expect = chai.expect
 
-const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js")
+import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import {makePDFFile, makePDFString} from "../src/makePDF"
@@ -32,7 +32,7 @@ describe('PDF generation tests', () => {
     const buffer = Buffer.from(pdfGenerated!, 'base64')
     const pdfGeneratedUint8 = new Uint8Array(buffer)
 
-    const loadingTask = pdfjsLib.getDocument({ data: pdfGeneratedUint8 })
+    const loadingTask = getDocument({ data: pdfGeneratedUint8 })
     doc = await loadingTask.promise
   })
 
