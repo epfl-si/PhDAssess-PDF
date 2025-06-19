@@ -1,7 +1,10 @@
-import PdfPrinter from "pdfmake"
 import fs from "fs"
+import path from 'path'
+import { buffer } from 'node:stream/consumers';
+
+import PdfPrinter from "pdfmake"
 import { BufferOptions, TDocumentDefinitions } from "pdfmake/interfaces"
-import getStream from "get-stream"
+
 import { defaultStyle, styles } from "./styles"
 import getMetaData from "./parts/meta"
 import getHeader from "./parts/header"
@@ -17,7 +20,6 @@ import getFooter from "./parts/footer"
 import getDate from "./parts/date"
 import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import type {PDFType} from "phd-assess-meta/types/notification";
-import path from 'path'
 
 
 const fonts = {
@@ -123,6 +125,6 @@ export async function makePDFString(
   )
   pdfDoc.end();
 
-  const bufferedPdf = await getStream.buffer(pdfDoc)
-  return Buffer.from(bufferedPdf).toString('base64')
+  const buf = await buffer(pdfDoc)
+  return buf.toString('base64')
 }
