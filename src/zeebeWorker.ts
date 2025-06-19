@@ -1,9 +1,13 @@
+import debug_ from 'debug'
 import {ZBClient} from "zeebe-node";
 import {Duration, ZBWorkerTaskHandler} from 'zeebe-node'
-import debug_ from 'debug'
+
 import {decryptVariables, encrypt} from "./encryption";
 import {makePDFString} from "./makePDF";
 import {flatPick} from "./utils";
+
+import { fetchFileAsBase64, fetchTicket } from "phdassess-ged-connector";
+import {mergePdfs} from "./mergePdfs";
 
 const version = require('./version.js');
 const debug = debug_('phd-assess/zeebeWorker')
@@ -40,6 +44,7 @@ const handler: ZBWorkerTaskHandler = async (
         'worker',
         'variables.created_at',
         'variables.created_by',
+        'variables.pdfAnnexPath',
       ]
     )
   })
@@ -49,7 +54,23 @@ const handler: ZBWorkerTaskHandler = async (
   // pdfType can come from two sources. As a custom header if it comes from an isolated activity, or
   // as a variable if it comes from the notification subprocess
   // @ts-ignore
-  const generatedPDF: string = await makePDFString(jobVariables, job.customHeaders.pdfType ?? jobVariables.pdfType)
+  let generatedPDF: string = await makePDFString(jobVariables, job.customHeaders.pdfType ?? jobVariables.pdfType)
+
+  // do we need to add the PDF annex file ?
+  if (jobVariables.pdfAnnexPath) {
+    const ticket = await fetchTicket({
+      serverUrl: process.env.ALFRESCO_URL!,
+      username: process.env.ALFRESCO_USERNAME!,
+      password: process.env.ALFRESCO_PASSWORD!,
+    })
+
+    const pdfAsBase64 = await fetchFileAsBase64(
+      jobVariables.pdfAnnexPath,
+      ticket,
+    )
+    // merge the two
+    generatedPDF = await mergePdfs(generatedPDF, pdfAsBase64)
+  }
 
   debug(`Job is complete, adding the data PDF to it (a b64 encrypted string`);
 
