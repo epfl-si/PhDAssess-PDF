@@ -6,7 +6,7 @@ import {decryptVariables, encrypt} from "./encryption";
 import {makePDFString} from "./makePDF";
 import {flatPick} from "./utils";
 
-import { fetchFileAsBase64, fetchTicket } from "phdassess-ged-connector";
+import {fetchFileAsBase64, fetchTicket} from "phdassess-ged-connector";
 import {mergePdfs} from "./mergePdfs";
 
 const version = require('./version.js');
