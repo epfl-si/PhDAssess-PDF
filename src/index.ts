@@ -1,5 +1,6 @@
-import {startWorker, zBClient} from "./zeebeWorker"
 import { LoggerAdaptToConsole } from "console-log-json";
+import { validateEnv } from "./validateEnv";
+import {startWorker, zBClient} from "./zeebeWorker"
 
 require('dotenv').config()
 
@@ -15,5 +16,7 @@ process.on( 'SIGINT', function() {
     zBClient.close().then(() => console.log('All workers closed'))
     process.exit( );
 })
+
+validateEnv()
 
 startWorker()
