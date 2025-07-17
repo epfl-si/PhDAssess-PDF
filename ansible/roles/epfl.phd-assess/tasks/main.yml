@@ -1,6 +1,0 @@
-- name: Secrets tasks
-  include_tasks: '{{ "secrets.yml" }}'
-
-- name: Phd assess pdf tasks
-  include_tasks: '{{ "phd_assess_pdf.yml" }}'
-  tags: [pdf-build, pdf-push]
