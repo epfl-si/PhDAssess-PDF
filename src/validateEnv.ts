@@ -1,9 +1,6 @@
 export const validateEnv = () => {
   const required = [
     'PHDASSESS_ENCRYPTION_KEY',
-    'ALFRESCO_USERNAME',
-    'ALFRESCO_PASSWORD',
-    'ALFRESCO_URL',
   ];
   const missing = required.filter(k => !process.env[k]);
 
