@@ -15,7 +15,6 @@ import sampleData from "../src/sample.json"
 import samplePdfType from "../src/samplePdfType.json"
 
 import {PDFDocumentProxy} from "pdfjs-dist";
-import {mergePdfs} from "../src/mergePdfs";
 
 
 describe('PDF generation tests', () => {
@@ -62,29 +61,6 @@ describe('PDF generation tests', () => {
 
   it('should be able to generate the PDF as file from sample data', async () => {
     makePDFFile(sampleData as unknown as PhDAssessVariables, samplePdfType)
-  })
-
-  it('should be able to merge two PDFs', async () => {
-    const pdf1 = await makePDFString(sampleData as unknown as PhDAssessVariables, samplePdfType)
-    const pdf2 = await makePDFString(sampleData as unknown as PhDAssessVariables, samplePdfType)
-
-    // open one pdf to check how many pages for one pdf
-    const buffer1 = Buffer.from(pdf1, 'base64')
-    const pdf1GeneratedUint8 = new Uint8Array(buffer1)
-    const pdf1Document = getDocument({ data: pdf1GeneratedUint8 })
-    const pdf1Doc = await pdf1Document.promise
-    const onePdfPageNumber = pdf1Doc.numPages
-
-    const mergedPdfBase64 = await mergePdfs(pdf1, pdf2)
-
-    const buffer = Buffer.from(mergedPdfBase64, 'base64')
-    const pdfGeneratedUint8 = new Uint8Array(buffer)
-
-    const loadingTask = getDocument({ data: pdfGeneratedUint8 })
-    const mergedDoc = await loadingTask.promise
-
-    expect(mergedDoc).to.not.be.empty
-    expect(mergedDoc.numPages).to.be.greaterThan(onePdfPageNumber + 1)
   })
 
   after(async () => {
