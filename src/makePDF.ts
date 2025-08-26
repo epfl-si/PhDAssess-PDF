@@ -34,7 +34,16 @@ const fonts = {
 function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFType | undefined): TDocumentDefinitions {
   let content
 
-  if (pdfType && pdfType === "collaborativeReview") {
+   if (pdfType && pdfType === "mentor") {
+    content = [
+      getHeader(),
+      getProvisional(),
+      getMain(phdVariables),
+      getSectionA(phdVariables),
+      getSectionB(phdVariables),
+      getDate(),
+    ]    
+  } else if (pdfType && pdfType === "collaborativeReview") {
     content = [
       getHeader(),
       getProvisional(),
