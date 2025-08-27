@@ -10,16 +10,9 @@ export default function getFooter(phdVariables: PhDAssessVariables) {
         { text:[{text: 'Program director ',  bold: true}, {text : 'checked the report on '}, {text: phdVariables.programDirectorDate ?? 'N/A'} ]}  : ""
     const programDirectorphdComment: Content = phdVariables.programDirectorComment ?
         { text: [{text : 'Comment: '}, {text: phdVariables.programDirectorComment ?? 'N/A'}, seperator ]}  : ""
-    const mentorMeet: Content = {
-        text: [
-            {text : '\nValidated by the doctoral candidate on '},
-            {text: phdVariables.phdDateOfReview ?? 'N/A'},
-            seperator
-        ]
-    }
+
 
     return [
-        mentorMeet,
         programDirectorReview,
         programDirectorphdComment,
     ]
