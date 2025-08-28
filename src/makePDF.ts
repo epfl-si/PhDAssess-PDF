@@ -52,7 +52,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getDate(),
+      getDate(phdVariables: pdfType),
     ]
   } else if (pdfType && pdfType === "unsatisfactory") {
     content = [
