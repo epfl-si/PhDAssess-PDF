@@ -41,7 +41,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getMain(phdVariables),
       getSectionA(phdVariables),
       getSectionB(phdVariables),
-      getDate(),
+      getDate(phdVariables),
     ]    
   } else if (pdfType && pdfType === "collaborativeReview") {
     content = [
@@ -52,7 +52,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getDate(phdVariables: pdfType),
+      getDate(phdVariables),
     ]
   } else if (pdfType && pdfType === "unsatisfactory") {
     content = [
@@ -64,7 +64,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getDate(),
+      getDate(phdVariables),
     ]
   } else if (pdfType && pdfType === "notAgree") {
     content = [
@@ -77,7 +77,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getDate(),
+      getDate(phdVariables),
     ]
   } else {
     content = [
@@ -90,7 +90,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
       getFooter(phdVariables),
-      getDate(),
+      getDate(phdVariables),
     ]
   }
 
