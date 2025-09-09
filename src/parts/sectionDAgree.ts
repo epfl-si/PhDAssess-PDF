@@ -36,7 +36,7 @@ export default function getSectionDAgree(phdVariables: IInputVariables) {
     }
     const agreePhd: Content = { text:[{text: 'Doctoral candidate',  bold: true}, {text : agreeaPhdOn}, {text: phdVariables.phdDateOfReview} ]}
     const phdComment: Content =  phdVariables.phdComment ?
-        { text: [{text : 'Comment: '}, {text: phdVariables.phdComment},seperator ]} : seperator 
+        { text: [{text : 'Comment: '}, {text: phdVariables.phdComment},seperator ]} : {text : '\n\n'} 
 
 
     return [
@@ -46,5 +46,7 @@ export default function getSectionDAgree(phdVariables: IInputVariables) {
         thesisDirectorComment,
         agreePhd,
         phdComment,
+        seperator,
+
     ]
 }

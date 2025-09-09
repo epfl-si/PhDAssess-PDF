@@ -1,7 +1,10 @@
-import PdfPrinter from "pdfmake"
 import fs from "fs"
+import path from 'path'
+import { buffer } from 'node:stream/consumers';
+
+import PdfPrinter from "pdfmake"
 import { BufferOptions, TDocumentDefinitions } from "pdfmake/interfaces"
-import getStream from "get-stream"
+
 import { defaultStyle, styles } from "./styles"
 import getMetaData from "./parts/meta"
 import getHeader from "./parts/header"
@@ -17,7 +20,6 @@ import getFooter from "./parts/footer"
 import getDate from "./parts/date"
 import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import type {PDFType} from "phd-assess-meta/types/notification";
-import path from 'path'
 
 
 const fonts = {
@@ -32,7 +34,16 @@ const fonts = {
 function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFType | undefined): TDocumentDefinitions {
   let content
 
-  if (pdfType && pdfType === "collaborativeReview") {
+   if (pdfType && pdfType === "mentor") {
+    content = [
+      getHeader(),
+      getProvisional(),
+      getMain(phdVariables),
+      getSectionA(phdVariables),
+      getSectionB(phdVariables),
+      getDate(phdVariables),
+    ]    
+  } else if (pdfType && pdfType === "collaborativeReview") {
     content = [
       getHeader(),
       getProvisional(),
@@ -41,7 +52,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getDate(),
+      getDate(phdVariables),
     ]
   } else if (pdfType && pdfType === "unsatisfactory") {
     content = [
@@ -53,7 +64,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getDate(),
+      getDate(phdVariables),
     ]
   } else if (pdfType && pdfType === "notAgree") {
     content = [
@@ -66,7 +77,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionB(phdVariables),
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
-      getDate(),
+      getDate(phdVariables),
     ]
   } else {
     content = [
@@ -79,7 +90,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionC(phdVariables),
       getSectionCCommentsAll(phdVariables, pdfType),
       getFooter(phdVariables),
-      getDate(),
+      getDate(phdVariables),
     ]
   }
 
@@ -123,6 +134,6 @@ export async function makePDFString(
   )
   pdfDoc.end();
 
-  const bufferedPdf = await getStream.buffer(pdfDoc)
-  return Buffer.from(bufferedPdf).toString('base64')
+  const buf = await buffer(pdfDoc)
+  return buf.toString('base64')
 }

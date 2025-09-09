@@ -5,15 +5,15 @@ chai.use(require('chai-fs'))
 const assert = chai.assert
 const expect = chai.expect
 
-const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js")
+import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 import type {PhDAssessVariables} from "phd-assess-meta/types/variables";
 import {makePDFFile, makePDFString} from "../src/makePDF"
 
-// @ts-ignore
+
 import sampleData from "../src/sample.json"
-// @ts-ignore
 import samplePdfType from "../src/samplePdfType.json"
+
 import {PDFDocumentProxy} from "pdfjs-dist";
 
 
@@ -32,7 +32,7 @@ describe('PDF generation tests', () => {
     const buffer = Buffer.from(pdfGenerated!, 'base64')
     const pdfGeneratedUint8 = new Uint8Array(buffer)
 
-    const loadingTask = pdfjsLib.getDocument({ data: pdfGeneratedUint8 })
+    const loadingTask = getDocument({ data: pdfGeneratedUint8 })
     doc = await loadingTask.promise
   })
 
@@ -44,12 +44,6 @@ describe('PDF generation tests', () => {
     const data = await doc.getMetadata()
     const info:any = data.info
     expect(info.Subject).to.equal("Annual report of 2nd year")
-
-    // METADATA
-    assert(info.Custom, `Can't find the activitylogs in ${JSON.stringify(info, null, 2)}`)
-    expect(JSON.parse(info.Custom.activityLogs)[0]).to.include(
-      {referrer: "http://localhost:3000/"}, `Can't find the referrer in the activity logs : ${info.Custom.activityLogs}`
-    )
 
     const pageNumber = 1
     const page = await doc.getPage(pageNumber)

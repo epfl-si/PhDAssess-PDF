@@ -1,9 +1,11 @@
+import debug_ from 'debug'
 import {ZBClient} from "zeebe-node";
 import {Duration, ZBWorkerTaskHandler} from 'zeebe-node'
-import debug_ from 'debug'
+
 import {decryptVariables, encrypt} from "./encryption";
 import {makePDFString} from "./makePDF";
 import {flatPick} from "./utils";
+
 
 const version = require('./version.js');
 const debug = debug_('phd-assess/zeebeWorker')
@@ -40,6 +42,7 @@ const handler: ZBWorkerTaskHandler = async (
         'worker',
         'variables.created_at',
         'variables.created_by',
+        'variables.pdfAnnexPath',
       ]
     )
   })
@@ -49,7 +52,7 @@ const handler: ZBWorkerTaskHandler = async (
   // pdfType can come from two sources. As a custom header if it comes from an isolated activity, or
   // as a variable if it comes from the notification subprocess
   // @ts-ignore
-  const generatedPDF: string = await makePDFString(jobVariables, job.customHeaders.pdfType ?? jobVariables.pdfType)
+  const generatedPDF = await makePDFString(jobVariables, job.customHeaders.pdfType ?? jobVariables.pdfType)
 
   debug(`Job is complete, adding the data PDF to it (a b64 encrypted string`);
 

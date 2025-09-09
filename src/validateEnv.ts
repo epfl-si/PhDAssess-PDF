@@ -1,0 +1,11 @@
+export const validateEnv = () => {
+  const required = [
+    'PHDASSESS_ENCRYPTION_KEY',
+  ];
+  const missing = required.filter(k => !process.env[k]);
+
+  if (missing.length) {
+    console.error(`Missing environment variables: ${missing.join(', ')}`);
+    process.exit(1);
+  }
+};

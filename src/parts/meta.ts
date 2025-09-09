@@ -14,6 +14,5 @@ export default function getMetaData(phdVariables: PhDAssessVariables): TDocument
       title: 'Annual Report',
       author:  phdVariables.phdStudentName +' (' + phdVariables.phdStudentSciper + ')',
       subject: 'Annual report of ' + phdVariables.year,
-      activityLogs: JSON.stringify(phdVariables.activityLogs),
     }
 }
