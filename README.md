@@ -6,7 +6,7 @@ Microservice in Node to generate PDF for the PhD assess process
 
 ### Test a PDF generation
 - `npm run generate-local-pdf`
-- take a look on the pdf inside the `/out` folder
+- take a look on the PDF inside the `/out` folder
 
 ### Start the zeebe worker locally
 - `npm start`

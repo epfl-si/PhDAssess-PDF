@@ -42,7 +42,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
       getSectionA(phdVariables),
       getSectionB(phdVariables),
       getDate(phdVariables),
-    ]    
+    ]
   } else if (pdfType && pdfType === "collaborativeReview") {
     content = [
       getHeader(),
@@ -103,7 +103,7 @@ function getDocumentDefinition(phdVariables: PhDAssessVariables, pdfType: PDFTyp
 }
 
 /*
- * Write the pdf into 'out/makePDF.pdf'
+ * Write the PDF into 'out/makePDF.pdf'
  */
 export function makePDFFile(phdVariables: PhDAssessVariables, pdfType: PDFType | undefined) {
   const printer = new PdfPrinter(fonts)
@@ -119,7 +119,7 @@ export function makePDFFile(phdVariables: PhDAssessVariables, pdfType: PDFType |
 }
 
 /*
- * Return the pdf as a base64 string
+ * Return the PDF as a base64 string
  */
 export async function makePDFString(
   phdVariables: PhDAssessVariables,

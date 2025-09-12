@@ -29,4 +29,4 @@
 - Add the PDF type, offering different contents
 
 *1.0.0* (2021-11-xx)
-- ✨ First day in prod !
+- ✨ First day in prod!

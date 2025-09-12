@@ -2,7 +2,7 @@ import _ from "lodash";
 
 
 /*
- * A mix of lodash _.pick and _.get, thx stackoverflow people
+ * A mix of lodash _.pick and _.get, thanks to the stackoverflow people
  */
 export const flatPick = (object: {}, paths: string[]) => {
   const o = {};
