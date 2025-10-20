@@ -1,6 +1,6 @@
 {
   "name": "phd-assess-pdf",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "description": "",
   "main": "src/makePDF.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "dependencies": {
     "app-root-path": "^3.1.0",
     "console-log-json": "^2.12.1",
-    "crypto-js": "^4.1.1",
+    "crypto-js": "^4.2.0",
     "debug": "^4.3.4",
     "dotenv": "^16.0.3",
     "genversion": "^3.1.1",
@@ -33,7 +33,7 @@
     "@tsconfig/node22": "^22.0.2",
     "@types/chai": "^4.3.20",
     "@types/chai-fs": "^2.0.2",
-    "@types/crypto-js": "^4.1.1",
+    "@types/crypto-js": "^4.2.2",
     "@types/debug": "^4.1.7",
     "@types/lodash": "^4.14.194",
     "@types/mocha": "^10.0.1",
