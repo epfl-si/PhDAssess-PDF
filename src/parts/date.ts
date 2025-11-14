@@ -10,6 +10,7 @@ export default function getDate(phdVariables: IInputVariables) {
     const datePdf : Content = { text: [seperator, {text : 'EPFL, the '}, {text: currentDay},seperator ]}
 
     return [
+        seperator,
         pdfAnnex,
         datePdf,
     ]
